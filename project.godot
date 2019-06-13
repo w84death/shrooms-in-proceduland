@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Shrooms in Proceduland - GLES2/128kB"
+run/main_scene="res://main.tscn"
+boot_splash/bg_color=Color( 0.188235, 0.0784314, 0.290196, 1 )
+
+[display]
+
+window/size/width=800
+window/size/height=342
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
+threads/thread_model=2
+quality/shadow_atlas/size=2048
+quality/filters/use_nearest_mipmap_filter=true
+quality/depth/hdr=false
+environment/default_environment="res://default_env.tres"

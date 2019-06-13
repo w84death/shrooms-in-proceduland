@@ -1,0 +1,10 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=2]
+
+[ext_resource path="res://materials/glista_red.material" type="Material" id=1]
+
+[resource]
+material = ExtResource( 1 )
+top_radius = 2.0
+height = 4.0
+radial_segments = 5
+rings = 2
