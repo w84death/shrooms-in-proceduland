@@ -8,8 +8,8 @@
 [ext_resource path="res://scenes/small/glista_head.tres" type="SphereMesh" id=6]
 [ext_resource path="res://scenes/small/glista_mounth.tres" type="CylinderMesh" id=7]
 [ext_resource path="res://materials/glista_internals.material" type="Material" id=8]
-[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -397,7 +397,6 @@ angular_velocity = -0.240289
 scale_amount_curve = SubResource( 15 )
 
 [node name="glista" type="Path" parent="terrain"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.003, 0, -13.0032 )
 curve = SubResource( 16 )
 
@@ -448,7 +447,6 @@ light_color = Color( 1, 0, 0, 1 )
 light_energy = 3.0
 
 [node name="kleszcz" type="MeshInstance" parent="terrain"]
-editor/display_folded = true
 transform = Transform( -0.130259, -0.757776, -0.639381, -0.944909, -0.10044, 0.311541, -0.300298, 0.644738, -0.702947, 3.08476, 27.5905, -3.3051 )
 use_in_baked_light = true
 mesh = SubResource( 19 )
@@ -490,26 +488,25 @@ mesh = SubResource( 21 )
 material/0 = null
 
 [node name="shrooms" type="Position3D" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0 )
 
-[node name="shroom" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405125, 0.0885878, -4.08977 )
 
-[node name="shroom2" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom2" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 0.186949, 0.199179, 0, -0.165982, 0.224339, 0, 0, 0, 0.25, 1.02492, 0.187856, -3.96485 )
 
-[node name="shroom3" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom3" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0.931327, -0.301565, -3.0089 )
 
-[node name="shroom4" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom4" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 0.0583069, -0.0586865, -0.188513, 0.0976107, 0.314213, 3.28905e-09, 0.164537, -0.165608, 0.0668034, 0.193228, 0.0885878, -4.64314 )
 
-[node name="shroom6" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom6" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 0.2, 0, 0, 0, 0.38, 0, 0, 0, 0.2, -0.424875, -0.21766, -3.20677 )
 
-[node name="shroom5" parent="shrooms" instance=ExtResource( 9 )]
+[node name="shroom5" parent="shrooms" instance=ExtResource( 10 )]
 transform = Transform( 0.6, 0, 0, 0, 0.4, 0, 0, 0, 0.6, -0.829085, -0.00983485, -5.07489 )
 
-[node name="P1X" parent="." instance=ExtResource( 10 )]
+[node name="P1X" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -27.72, 0.61, 49.7 )
