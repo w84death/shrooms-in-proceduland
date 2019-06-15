@@ -7,6 +7,7 @@
 operator = 2
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=2]
+constant = 0.26
 
 [sub_resource type="VisualShaderNodeColorUniform" id=3]
 uniform_name = "color"
@@ -38,10 +39,10 @@ operator = 2
 uniform_name = "scale_normal"
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=13]
-constant = 0.5
+constant = 0.1
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=14]
-constant = 0.666
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeInput" id=15]
 input_name = "uv"
@@ -220,15 +221,15 @@ void fragment() {
 
 // Scalar:12
 	float n_out12p0;
-	n_out12p0 = 0.000000;
+	n_out12p0 = 0.260000;
 
 // Scalar:4
 	float n_out4p0;
-	n_out4p0 = 0.666000;
+	n_out4p0 = 1.000000;
 
 // Scalar:3
 	float n_out3p0;
-	n_out3p0 = 0.500000;
+	n_out3p0 = 0.100000;
 
 // ScalarUniform:22
 	float n_out22p0;
@@ -280,7 +281,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 273, 185.5 )
+graph_offset = Vector2( 629.464, 121.323 )
 flags/vertex_lighting = true
 nodes/vertex/0/position = Vector2( 1800, 80 )
 nodes/vertex/2/node = SubResource( 23 )
