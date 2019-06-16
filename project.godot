@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Shrooms in Proceduland - GLES2/128kB"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/big/intro.tscn"
 boot_splash/bg_color=Color( 0.188235, 0.0784314, 0.290196, 1 )
 
 [display]

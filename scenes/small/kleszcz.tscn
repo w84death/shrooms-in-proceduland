@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://materials/glista_skin.material" type="Material" id=1]
+[ext_resource path="res://materials/glista_internals.material" type="Material" id=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+material = ExtResource( 1 )
+radius = 1.08
+mid_height = 0.78
+radial_segments = 8
+rings = 1
+
+[sub_resource type="CylinderMesh" id=2]
+material = ExtResource( 2 )
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.95
+radial_segments = 4
+rings = 1
+
+[sub_resource type="SphereMesh" id=3]
+material = ExtResource( 2 )
+radius = 0.3
+height = 0.9
+
+[node name="kleszcz" type="MeshInstance"]
+transform = Transform( -0.130259, -0.757776, -0.639381, -0.944909, -0.10044, 0.311541, -0.300298, 0.644738, -0.702947, 3.08476, 27.5905, -3.3051 )
+visible = false
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.848765, -0.486305, -0.20762, 0.468983, 0.873703, -0.129226, 0.244241, 0.0123124, 0.969637, 0.641551, -1.06354, -0.926694 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( -0.86217, -0.439891, -0.251317, 0.438746, -0.896348, 0.0637505, -0.25331, -0.0553008, 0.965804, 0.617265, 0.955414, -0.608065 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.848765, -0.392752, -0.354041, 0.468983, 0.868418, 0.160951, 0.244241, -0.302649, 0.921277, 0.491244, -1.14401, -0.402818 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( -0.86217, -0.33468, -0.380333, 0.438746, -0.868616, -0.230232, -0.25331, -0.365369, 0.895734, 0.480012, 1.13787, -0.233954 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.848765, -0.517106, 0.110452, 0.468983, 0.639704, -0.608961, 0.244241, 0.568665, 0.785472, 0.601404, -0.657066, -1.33912 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( -0.862169, -0.504342, 0.0479959, 0.438746, -0.695934, 0.568488, -0.25331, 0.511191, 0.821291, 0.568382, 0.61687, -1.07428 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="head" type="MeshInstance" parent="."]
+transform = Transform( 1, -7.45058e-09, 0, -7.45058e-09, 1, 0, 1.11759e-08, 0, 1, 0.262733, -0.00256038, -1.32009 )
+mesh = SubResource( 3 )
+material/0 = null

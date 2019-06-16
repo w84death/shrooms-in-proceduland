@@ -1,0 +1,217 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=2]
+[ext_resource path="res://materials/smoke.material" type="Material" id=3]
+[ext_resource path="res://materials/fireball.material" type="Material" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "intro"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera/P1X:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 4 ), Vector3( 0, 0, -2 ), Vector3( 0, 0, -2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sun:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -14.793, -19.382, 0 ), Vector3( 14, 31.278, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sun:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6.4, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("camera:environment:fog_height_curve")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.8, 6.2, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.03527, 1.03527, 0.129408, 0.129408 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("camera/P1X/boom:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("camera/P1X/smoke:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("camera/P1X/fireball:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+fog_enabled = true
+fog_color = Color( 0, 0, 0, 1 )
+fog_depth_enabled = false
+fog_depth_begin = 3.0
+fog_depth_end = 12.0
+fog_height_enabled = true
+fog_height_min = 1.0
+fog_height_max = -2.0
+fog_height_curve = 1.03527
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.494118, 0.494118, 0.494118, 1 )
+metallic = 0.22
+
+[sub_resource type="CubeMesh" id=23]
+material = SubResource( 22 )
+size = Vector3( 0.6, 0.6, 0.1 )
+
+[sub_resource type="Curve" id=20]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0880863, 1 ), -0.974185, -0.244711, 0, 0, Vector2( 0.431348, 0.3196 ), -1.88977, -1.88977, 0, 0, Vector2( 1, 0.0102534 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=21]
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="SphereMesh" id=24]
+material = ExtResource( 3 )
+radial_segments = 5
+rings = 4
+
+[sub_resource type="SphereMesh" id=25]
+material = ExtResource( 4 )
+radial_segments = 5
+rings = 4
+
+[node name="intro" type="Spatial"]
+
+[node name="main" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+anims/intro = SubResource( 2 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.943327, 0.0847343, -0.320865, 0, 0.966855, 0.255328, 0.331865, -0.240857, 0.91206, 0, 7, 0 )
+light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
+light_indirect_energy = 0.0
+light_bake_mode = 2
+
+[node name="camera" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+environment = SubResource( 1 )
+fov = 110.0
+
+[node name="effects" parent="camera" index="0"]
+transform = Transform( 1, 0, 0, 4.65661e-10, 1, 0, 0, 1.49012e-08, 1, 0, 0, -0.35 )
+
+[node name="P1X" parent="camera" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="P" parent="camera/P1X" index="0"]
+editor/display_folded = true
+
+[node name="1" parent="camera/P1X" index="1"]
+editor/display_folded = true
+
+[node name="X" parent="camera/P1X" index="2"]
+editor/display_folded = true
+
+[node name="boom" type="CPUParticles" parent="camera/P1X"]
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+speed_scale = 5.0
+mesh = SubResource( 23 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 1, 0.1 )
+flag_align_y = true
+spread = 122.73
+flatness = 0.77
+gravity = Vector3( 0, 0, 0 )
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 20 )
+color_ramp = SubResource( 21 )
+
+[node name="smoke" type="CPUParticles" parent="camera/P1X"]
+emitting = false
+amount = 64
+lifetime = 2.0
+one_shot = true
+mesh = SubResource( 24 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 1, 0.1 )
+flag_align_y = true
+spread = 90.0
+flatness = 0.77
+gravity = Vector3( 0, 0, 0 )
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 20 )
+color_ramp = SubResource( 21 )
+
+[node name="fireball" type="CPUParticles" parent="camera/P1X"]
+emitting = false
+amount = 48
+lifetime = 0.5
+one_shot = true
+mesh = SubResource( 25 )
+emission_shape = 2
+emission_box_extents = Vector3( 0.5, 0.5, 0.1 )
+flag_align_y = true
+spread = 116.88
+gravity = Vector3( 0, 0, 0 )
+scale_amount = 0.5
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 20 )
+color_ramp = SubResource( 21 )
+
+[editable path="camera"]
+
+[editable path="camera/P1X"]
