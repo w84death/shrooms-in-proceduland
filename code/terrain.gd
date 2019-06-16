@@ -1,6 +1,6 @@
 extends MeshInstance
 
-const TERRAIN = preload("res://noise2.tres")
+export var TERRAIN = preload("res://textures/noise_base.tres")
 
 func _ready():
 	var noise = OpenSimplexNoise.new()

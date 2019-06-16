@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Shrooms in Proceduland - GLES2/128kB"
+config/name="Shrooms in Proceduland - GLES2/1.44MB"
 run/main_scene="res://scenes/big/intro.tscn"
 boot_splash/bg_color=Color( 0.188235, 0.0784314, 0.290196, 1 )
 
@@ -25,6 +25,10 @@ window/size/width=800
 window/size/height=342
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "midi" )
 
 [rendering]
 
