@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://code/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://flat_env.tres" type="Environment" id=3]
+[ext_resource path="res://scenes/small/kleszcz.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "end"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "quit_game"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera/kleszcz:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, -90, 0 ), Vector3( 90, -90, 0 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 360 ), Vector3( 90, -90, 360 ) ]
+}
+
+[node name="end" type="Spatial"]
+script = ExtResource( 1 )
+next_scene_bigfile = "intro"
+
+[node name="AnimmainationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "end"
+anims/end = SubResource( 1 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.98158, 0.00827614, 0.19087, 0, 0.999062, -0.0433195, -0.191049, 0.0425216, 0.980659, 0, 7, 0 )
+light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
+light_energy = 2.0
+light_indirect_energy = 0.0
+light_bake_mode = 2
+
+[node name="camera" parent="." instance=ExtResource( 2 )]
+environment = ExtResource( 3 )
+
+[node name="kleszcz" parent="camera" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, -12 )

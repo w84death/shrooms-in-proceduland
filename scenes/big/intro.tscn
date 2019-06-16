@@ -2,9 +2,10 @@
 
 [ext_resource path="res://code/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=3]
-[ext_resource path="res://materials/smoke.material" type="Material" id=4]
-[ext_resource path="res://materials/fireball.material" type="Material" id=5]
+[ext_resource path="res://flat_env.tres" type="Environment" id=3]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=4]
+[ext_resource path="res://materials/smoke.material" type="Material" id=5]
+[ext_resource path="res://materials/fireball.material" type="Material" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "intro"
@@ -109,40 +110,27 @@ tracks/7/keys = {
 } ]
 }
 
-[sub_resource type="Environment" id=2]
-background_mode = 1
-background_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
-fog_enabled = true
-fog_color = Color( 0, 0, 0, 1 )
-fog_depth_enabled = false
-fog_depth_begin = 3.0
-fog_depth_end = 12.0
-fog_height_enabled = true
-fog_height_min = 1.0
-fog_height_max = -2.0
-fog_height_curve = 0.129408
-
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.494118, 0.494118, 0.494118, 1 )
 metallic = 0.22
 
-[sub_resource type="CubeMesh" id=4]
-material = SubResource( 3 )
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
 size = Vector3( 0.6, 0.6, 0.1 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=4]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0880863, 1 ), -0.974185, -0.244711, 0, 0, Vector2( 0.431348, 0.3196 ), -1.88977, -1.88977, 0, 0, Vector2( 1, 0.0102534 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0 )
 
-[sub_resource type="SphereMesh" id=7]
-material = ExtResource( 4 )
+[sub_resource type="SphereMesh" id=6]
+material = ExtResource( 5 )
 radial_segments = 5
 rings = 4
 
-[sub_resource type="SphereMesh" id=8]
-material = ExtResource( 5 )
+[sub_resource type="SphereMesh" id=7]
+material = ExtResource( 6 )
 radial_segments = 5
 rings = 4
 
@@ -162,13 +150,13 @@ light_bake_mode = 2
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-environment = SubResource( 2 )
+environment = ExtResource( 3 )
 fov = 110.0
 
 [node name="effects" parent="camera" index="0"]
 transform = Transform( 1, 0, 0, 4.65661e-10, 1, 0, 0, 1.49012e-08, 1, 0, 0, -0.35 )
 
-[node name="P1X" parent="camera" instance=ExtResource( 3 )]
+[node name="P1X" parent="camera" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 
 [node name="P" parent="camera/P1X" index="0"]
@@ -186,51 +174,48 @@ amount = 32
 lifetime = 3.0
 one_shot = true
 speed_scale = 5.0
-mesh = SubResource( 4 )
+mesh = SubResource( 3 )
 emission_shape = 2
 emission_box_extents = Vector3( 0.5, 1, 0.1 )
 flag_align_y = true
 spread = 122.73
 flatness = 0.77
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 0.0
 scale_amount_random = 0.5
-scale_amount_curve = SubResource( 5 )
-color_ramp = SubResource( 6 )
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
 
 [node name="smoke" type="CPUParticles" parent="camera/P1X"]
 emitting = false
 amount = 64
 lifetime = 2.0
 one_shot = true
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 emission_shape = 2
 emission_box_extents = Vector3( 0.5, 1, 0.1 )
 flag_align_y = true
 spread = 90.0
 flatness = 0.77
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 0.0
 scale_amount_random = 0.5
-scale_amount_curve = SubResource( 5 )
-color_ramp = SubResource( 6 )
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
 
 [node name="fireball" type="CPUParticles" parent="camera/P1X"]
 emitting = false
 amount = 48
 lifetime = 0.5
 one_shot = true
-mesh = SubResource( 8 )
+mesh = SubResource( 7 )
 emission_shape = 2
 emission_box_extents = Vector3( 0.5, 0.5, 0.1 )
 flag_align_y = true
 spread = 116.88
 gravity = Vector3( 0, 0, 0 )
-angular_velocity = 0.0
 scale_amount = 0.5
 scale_amount_random = 0.5
-scale_amount_curve = SubResource( 5 )
-color_ramp = SubResource( 6 )
+scale_amount_curve = SubResource( 4 )
+color_ramp = SubResource( 5 )
 
 [editable path="camera"]
 

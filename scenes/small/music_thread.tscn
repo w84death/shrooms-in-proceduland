@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=1]
+[ext_resource path="res://addons/midi/icon.png" type="Texture" id=2]
+
+[node name="music_thread" type="AudioStreamPlayer"]
+volume_db = -15.0
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_icon": ExtResource( 2 )
+}
+file = "res://music/soundtrack.ogg.mid"
+playing = true
+volume_db = -15.0
+loop = true
+load_all_voices_from_soundfont = true
+no_reload_soundfont = true
+soundfont = "res://music/vibra.sf2"

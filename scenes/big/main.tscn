@@ -1,19 +1,18 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=1]
-[ext_resource path="res://addons/midi/icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://materials/terrain_dunes.material" type="Material" id=4]
-[ext_resource path="res://code/terrain.gd" type="Script" id=5]
-[ext_resource path="res://scenes/small/baloon.tres" type="SphereMesh" id=6]
-[ext_resource path="res://materials/smoke.material" type="Material" id=7]
-[ext_resource path="res://materials/glista_skin.material" type="Material" id=8]
-[ext_resource path="res://materials/dust.material" type="Material" id=9]
-[ext_resource path="res://scenes/small/glista_head.tres" type="SphereMesh" id=10]
-[ext_resource path="res://scenes/small/glista_mounth.tres" type="CylinderMesh" id=11]
-[ext_resource path="res://scenes/small/stone.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=14]
+[ext_resource path="res://code/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://materials/terrain_dunes.material" type="Material" id=3]
+[ext_resource path="res://code/terrain.gd" type="Script" id=4]
+[ext_resource path="res://scenes/small/baloon.tres" type="SphereMesh" id=5]
+[ext_resource path="res://materials/smoke.material" type="Material" id=6]
+[ext_resource path="res://materials/glista_skin.material" type="Material" id=7]
+[ext_resource path="res://materials/dust.material" type="Material" id=8]
+[ext_resource path="res://scenes/small/glista_head.tres" type="SphereMesh" id=9]
+[ext_resource path="res://scenes/small/glista_mounth.tres" type="CylinderMesh" id=10]
+[ext_resource path="res://scenes/small/stone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -55,6 +54,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 30 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "next_scene"
+} ]
+}
 
 [sub_resource type="BakedLightmapData" id=2]
 bounds = AABB( -128, -24, -128, 256, 48, 256 )
@@ -86,7 +99,7 @@ fog_height_min = 1.0
 fog_height_max = -1.0
 
 [sub_resource type="PlaneMesh" id=5]
-material = ExtResource( 4 )
+material = ExtResource( 3 )
 size = Vector2( 256, 256 )
 subdivide_width = 256
 subdivide_depth = 256
@@ -102,7 +115,7 @@ map_data = PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 _data = [ Vector2( 0, 0 ), 0.0, 2.01524, 0, 0, Vector2( 0.774609, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="SphereMesh" id=9]
-material = ExtResource( 7 )
+material = ExtResource( 6 )
 radius = 8.0
 height = 16.0
 radial_segments = 4
@@ -119,7 +132,7 @@ _data = {
 }
 
 [sub_resource type="SphereMesh" id=12]
-material = ExtResource( 9 )
+material = ExtResource( 8 )
 radius = 1.71
 height = 3.08
 radial_segments = 4
@@ -128,7 +141,9 @@ rings = 2
 [sub_resource type="Curve" id=13]
 _data = [ Vector2( 0, 0.0159999 ), 0.0, 0.0, 0, 0, Vector2( 0.259717, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.831819, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="Spatial" type="Spatial"]
+[node name="main_scene" type="Spatial"]
+script = ExtResource( 1 )
+next_scene_bigfile = "end"
 
 [node name="master" type="AnimationPlayer" parent="."]
 autoplay = "demo"
@@ -144,20 +159,6 @@ light_data = SubResource( 2 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 4 )
 
-[node name="GodotMIDIPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -15.0
-script = ExtResource( 1 )
-__meta__ = {
-"_editor_icon": ExtResource( 2 )
-}
-file = "res://music/WORMINTR.MID"
-playing = true
-volume_db = -15.0
-loop = true
-load_all_voices_from_soundfont = true
-no_reload_soundfont = true
-soundfont = "res://music/vibra.sf2"
-
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( -0.563238, -0.727008, 0.392714, 0, 0.475271, 0.879839, -0.826295, 0.495559, -0.267691, 0, 24, 0 )
 light_color = Color( 0.901961, 0.901961, 0.901961, 1 )
@@ -170,8 +171,8 @@ shadow_reverse_cull_face = true
 directional_shadow_mode = 0
 directional_shadow_max_distance = 64.0
 
-[node name="camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.995674, 0.0407519, 0.0834976, -0.023191, 0.979236, -0.201384, -0.0899708, 0.198576, 0.975946, 1.267, 3.86, 71.6207 )
+[node name="camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.920346, -0.0714017, -0.384532, -0.0282534, 0.968485, -0.247455, 0.390083, 0.238609, 0.889325, -27.678, 1.22, 68.474 )
 
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -25.82, -3.62 )
@@ -179,7 +180,7 @@ extra_cull_margin = 64.0
 use_in_baked_light = true
 mesh = SubResource( 5 )
 material/0 = null
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="StaticBody" type="StaticBody" parent="terrain"]
 editor/display_folded = true
@@ -194,7 +195,7 @@ use_in_baked_light = true
 amount = 32
 lifetime = 24.0
 preprocess = 12.0
-mesh = ExtResource( 6 )
+mesh = ExtResource( 5 )
 emission_shape = 2
 emission_box_extents = Vector3( 512, 1, 512 )
 gravity = Vector3( 0, 1, 0 )
@@ -254,7 +255,7 @@ path_local = false
 path_continuous_u = true
 path_joined = false
 smooth_faces = true
-material = ExtResource( 8 )
+material = ExtResource( 7 )
 
 [node name="dust" type="CPUParticles" parent="terrain/glista"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -30.627, 23.827, 7.25 )
@@ -278,12 +279,12 @@ scale_amount_curve = SubResource( 13 )
 [node name="head" type="CSGMesh" parent="terrain/glista"]
 editor/display_folded = true
 transform = Transform( 0.967474, -0.226709, 0.112242, -0.218685, -0.52647, 0.821588, -0.127169, -0.819409, -0.558924, -9.375, 28.977, 17.94 )
-mesh = ExtResource( 10 )
+mesh = ExtResource( 9 )
 
 [node name="mounth" type="CSGMesh" parent="terrain/glista/head"]
 transform = Transform( 0.954397, 0, -0.298541, 0, 1, 0, 0.298541, 0, 0.954397, 0.071, 2.049, 0 )
 operation = 2
-mesh = ExtResource( 11 )
+mesh = ExtResource( 10 )
 
 [node name="OmniLight" type="OmniLight" parent="terrain/glista/head"]
 transform = Transform( 1, 2.98023e-08, -1.49012e-08, -7.45058e-09, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 2.43, 0 )
@@ -291,56 +292,56 @@ light_color = Color( 1, 0, 0, 1 )
 light_energy = 3.0
 omni_range = 7.0
 
-[node name="stone" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 0.873098, 0.407228, 0.268076, -0.421506, 0.906813, -0.00471237, -0.245014, -0.108881, 0.963386, -6.21, 25.326, 6.69 )
 
-[node name="stone8" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone8" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( -0.703736, -0.406274, 0.053443, -0.296689, 0.858581, 0.13939, -0.158529, 0.196672, -0.498111, -9.51236, 25.326, 3.57815 )
 
-[node name="stone4" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone4" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 0.873098, 0.407228, 0.268076, 0.434781, -0.899137, -0.0501828, 0.220601, 0.160368, -0.96209, -27.4871, 24.7, -11.8073 )
 
-[node name="stone5" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone5" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 2.04643, 1.16812, -1.23236, 1.30614, -1.59214, -1.07044, -2.14563, 0.144905, -1.82701, -9.177, 24.94, -21.672 )
 
-[node name="stone6" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone6" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 3.19307, -0.315327, 0.142805, 0.522193, 1.52976, -1.50451, 0.170954, 1.21688, 1.92835, 42.5529, 26.9352, -18.5192 )
 
-[node name="stone9" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone9" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( -5.60094, 15.2258, 17.6862, 3.8681, 18.5426, -14.7381, -23.0145, -0.588956, -6.78128, 37.5915, 25.8721, -154.376 )
 
-[node name="stone10" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone10" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 12.6844, 17.8807, 9.76662, -9.17774, 15.2859, -16.0658, -18.19, 4.75622, 14.9165, 204.586, 22.02, -198.171 )
 
-[node name="stone7" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone7" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 0.985515, -0.229329, 0.0920947, 0.136235, 1.36534, 0.453688, -0.100995, -0.396064, 1.51066, 45.2761, 26.9352, -7.35991 )
 
-[node name="stone3" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone3" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 0.909718, 0.413177, -1.86237, -0.890836, 1.91651, -0.00995941, 2.51372, 1.17617, 1.48883, -34.1373, 24.7, -19.1254 )
 
-[node name="stone2" parent="terrain" instance=ExtResource( 12 )]
+[node name="stone2" parent="terrain" instance=ExtResource( 11 )]
 transform = Transform( 0.345251, 1.208, -1.11958, -0.640027, 1.37993, 0.84179, 1.50335, 0.31006, 0.615494, -12.19, 23.61, 6.69 )
 
 [node name="shrooms" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0 )
 
-[node name="shroom" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405125, 0.0885878, -4.08977 )
 
-[node name="shroom2" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom2" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 0.186949, 0.199179, 0, -0.165982, 0.224339, 0, 0, 0, 0.25, 1.02492, 0.187856, -3.96485 )
 
-[node name="shroom3" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom3" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0.931327, -0.301565, -3.0089 )
 
-[node name="shroom4" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom4" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 0.0583069, -0.0586865, -0.188513, 0.0976107, 0.314213, 3.28905e-09, 0.164537, -0.165608, 0.0668034, 0.193228, 0.0885878, -4.64314 )
 
-[node name="shroom6" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom6" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 0.2, 0, 0, 0, 0.38, 0, 0, 0, 0.2, -0.424875, -0.21766, -3.20677 )
 
-[node name="shroom5" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom5" parent="shrooms" instance=ExtResource( 12 )]
 transform = Transform( 0.6, 0, 0, 0, 0.4, 0, 0, 0, 0.6, -0.829085, -0.00983485, -5.07489 )
 
-[node name="P1X" parent="." instance=ExtResource( 14 )]
+[node name="P1X" parent="." instance=ExtResource( 13 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -27.72, 0.61, 49.7 )

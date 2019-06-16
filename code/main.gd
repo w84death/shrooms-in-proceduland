@@ -2,9 +2,6 @@ extends Spatial
 
 export var next_scene_bigfile = "main"
 
-func _ready():
-    pass # Replace with function body.
-
 func _input(event):
     if Input.is_key_pressed(KEY_ESCAPE):
         quit_game()
