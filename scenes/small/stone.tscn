@@ -2,7 +2,8 @@
 
 [ext_resource path="res://materials/stone.material" type="Material" id=1]
 
-[sub_resource type="CubeMesh" id=14]
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
 size = Vector3( 3.65, 4.08, 5.59 )
 subdivide_width = 12
 subdivide_height = 12
@@ -10,8 +11,7 @@ subdivide_depth = 12
 
 [node name="stone" type="CSGMesh"]
 transform = Transform( 0.873098, 0.407228, 0.268076, -0.421506, 0.906813, -0.00471237, -0.245014, -0.108881, 0.963386, -6.21, 24.7, 6.69 )
-mesh = SubResource( 14 )
-material = ExtResource( 1 )
+mesh = SubResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 0.885475, -0.310515, 0.34571, 0, 0.743962, 0.668222, -0.464688, -0.591694, 0.658759, 1.71, 1.13, 3.09 )
