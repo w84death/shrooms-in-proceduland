@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "end"
-length = 4.0
+length = 8.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -15,7 +15,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 4 ),
+"times": PoolRealArray( 8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -29,17 +29,41 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 3, 3.5, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 3, 3.5, 4, 5, 7, 7.5, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 90, -90, 0 ), Vector3( 90, -90, 0 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 360 ), Vector3( 90, -90, 360 ) ]
+"values": [ Vector3( 90, -90, 0 ), Vector3( 90, -90, 0 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 360 ), Vector3( 90, -90, 360 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 180 ), Vector3( 90, -90, 360 ), Vector3( 90, -90, 360 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GUI/center/credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.811765, 0.698039, 0.505882, 1 ), Color( 0.937255, 0.823529, 0.380392, 1 ), Color( 0.811765, 0.698039, 0.505882, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("GUI/center/info:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4, 4.9, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0.811765, 0.698039, 0.505882, 1 ), Color( 0.811765, 0.698039, 0.505882, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [node name="end" type="Spatial"]
 script = ExtResource( 1 )
 next_scene_bigfile = "intro"
 
-[node name="AnimmainationPlayer" type="AnimationPlayer" parent="."]
+[node name="main" type="AnimationPlayer" parent="."]
 autoplay = "end"
 anims/end = SubResource( 1 )
 
@@ -54,4 +78,68 @@ light_bake_mode = 2
 environment = ExtResource( 3 )
 
 [node name="kleszcz" parent="camera" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0, -12 )
+transform = Transform( -2.18557e-07, -1, 4.37114e-08, -7.64274e-15, -4.37114e-08, -1, 1, -2.18557e-07, 1.91069e-15, 0, 0, -12 )
+
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="center" type="Control" parent="GUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 90.0
+margin_bottom = 90.0
+
+[node name="credits" type="Control" parent="GUI/center"]
+modulate = Color( 0, 0, 0, 0 )
+
+[node name="by" type="Label" parent="GUI/center/credits"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -24.0
+margin_bottom = 24.0
+text = "Directed by
+Music by
+MIDI Player by"
+align = 2
+
+[node name="names" type="Label" parent="GUI/center/credits"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -24.0
+margin_right = 221.0
+margin_bottom = 24.0
+text = "KRZYSZTOF JANKOWSKI
+MIREK HARENDA
+YUI KINOMOT"
+
+[node name="info" type="Control" parent="GUI/center"]
+modulate = Color( 0, 0, 0, 0 )
+
+[node name="what" type="Label" parent="GUI/center/info"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -24.0
+margin_bottom = 24.0
+text = "Visit our page at"
+align = 2
+valign = 1
+
+[node name="where" type="Label" parent="GUI/center/info"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = -24.0
+margin_right = 221.0
+margin_bottom = 24.0
+text = "HTTPS://P1X.IN"
+valign = 1

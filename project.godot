@@ -27,6 +27,7 @@ music_thread="*res://scenes/small/music_thread.tscn"
 
 window/size/width=800
 window/size/height=342
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -37,6 +38,7 @@ enabled=PoolStringArray( "midi" )
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
 quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
 threads/thread_model=2
 quality/shadow_atlas/size=2048
