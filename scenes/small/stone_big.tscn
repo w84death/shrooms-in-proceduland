@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://materials/stone.material" type="Material" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 5, 5, 5 )
+subdivide_width = 12
+subdivide_height = 12
+subdivide_depth = 12
+
+[node name="stone_big" type="CSGMesh"]
+transform = Transform( 0.674734, 0.738061, 0, -0.611399, 0.558939, -0.560159, -0.413431, 0.377958, 0.828385, 0, 0, 0 )
+mesh = SubResource( 1 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 0.669862, 0.20104, 0.714751, 0.286882, 0.817806, -0.498891, -0.684824, 0.539237, 0.490142, 1.07523, 1.75025, -2.81893 )
+operation = 2
+width = 2.18
+height = 6.36
+depth = 10.21
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( -0.791704, 0.376416, 0.481161, 0.28576, -0.467958, 0.836276, 0.53995, 0.799579, 0.262919, -4.30424, -0.132182, 2.02866 )
+operation = 2
+width = 4.56
+height = 6.36
+depth = 10.21
+material = ExtResource( 1 )

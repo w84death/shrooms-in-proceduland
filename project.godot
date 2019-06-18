@@ -27,13 +27,12 @@ music_thread="*res://scenes/small/music_thread.tscn"
 
 window/size/width=800
 window/size/height=342
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "midi" )
+enabled=PoolStringArray(  )
 
 [rendering]
 
