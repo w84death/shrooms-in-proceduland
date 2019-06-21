@@ -10,6 +10,6 @@ __meta__ = {
 }
 file = "res://music/soundtrack.mid"
 playing = true
-play_speed = 4.0
+play_speed = 1.0
 loop = true
 soundfont = "res://music/soundfont.sf2"
