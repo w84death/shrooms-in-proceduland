@@ -1,19 +1,20 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://code/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://materials/terrain_dunes.material" type="Material" id=3]
-[ext_resource path="res://scenes/small/baloon.tres" type="SphereMesh" id=4]
-[ext_resource path="res://materials/clouds.material" type="Material" id=5]
-[ext_resource path="res://materials/big_dust.material" type="Material" id=6]
-[ext_resource path="res://materials/glista_skin.material" type="Material" id=7]
-[ext_resource path="res://materials/dust.material" type="Material" id=8]
+[ext_resource path="res://scenes/small/baloon.tres" type="SphereMesh" id=3]
+[ext_resource path="res://materials/clouds.material" type="Material" id=4]
+[ext_resource path="res://materials/terrain_dunes.material" type="Material" id=5]
+[ext_resource path="res://materials/stone.material" type="Material" id=6]
+[ext_resource path="res://materials/big_dust.material" type="Material" id=7]
+[ext_resource path="res://materials/glista_skin.material" type="Material" id=8]
 [ext_resource path="res://scenes/small/glista_head.tres" type="SphereMesh" id=9]
 [ext_resource path="res://scenes/small/glista_mounth.tres" type="CylinderMesh" id=10]
-[ext_resource path="res://scenes/small/stone.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/small/stone_big.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=14]
+[ext_resource path="res://materials/dust.material" type="Material" id=11]
+[ext_resource path="res://scenes/small/stone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/small/stone_big.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -99,6 +100,33 @@ tracks/1/keys = {
 "values": [ Vector3( -25.983, 1.59, 61.17 ), Vector3( -25.273, 1.59, 56.51 ) ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "t                             "
+tracks/0/type = "value"
+tracks/0/path = NodePath("camera:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 91.527, 5.93, -4.51 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("camera:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 12.618, -219.43, 0 ) ]
+}
+
 [sub_resource type="BakedLightmapData" id=3]
 bounds = AABB( -128, -24, -128, 256, 48, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 96, 512 )
@@ -129,21 +157,21 @@ fog_height_enabled = true
 fog_height_min = 2.0
 fog_height_max = -2.0
 
-[sub_resource type="PlaneMesh" id=6]
-material = ExtResource( 3 )
-size = Vector2( 256, 256 )
-subdivide_width = 256
-subdivide_depth = 256
-
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), 0.0, 2.01524, 0, 0, Vector2( 0.774609, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="PlaneMesh" id=8]
-material = ExtResource( 5 )
+material = ExtResource( 4 )
 size = Vector2( 256, 256 )
 
+[sub_resource type="PlaneMesh" id=6]
+material = ExtResource( 5 )
+size = Vector2( 256, 256 )
+subdivide_width = 256
+subdivide_depth = 256
+
 [sub_resource type="PlaneMesh" id=9]
-material = ExtResource( 6 )
+material = ExtResource( 7 )
 size = Vector2( 512, 32 )
 
 [sub_resource type="Curve3D" id=10]
@@ -154,7 +182,7 @@ _data = {
 }
 
 [sub_resource type="SphereMesh" id=11]
-material = ExtResource( 8 )
+material = ExtResource( 11 )
 radius = 1.71
 height = 3.08
 radial_segments = 4
@@ -171,6 +199,7 @@ next_scene_bigfile = "end"
 autoplay = "demo"
 anims/demo = SubResource( 1 )
 anims/still = SubResource( 2 )
+"anims/t                             " = SubResource( 13 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.4667, 0 )
@@ -195,23 +224,16 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 128.0
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.99636, 0.0171671, 0.0835005, 0, 0.979511, -0.20138, -0.085247, 0.200647, 0.975947, 1.267, 3.86, 76.16 )
+transform = Transform( -0.772401, 0.138745, 0.619795, 0, 0.975846, -0.21845, -0.635135, -0.168731, -0.753746, 91.527, 5.93, -4.51 )
 far = 2048.0
 
-[node name="terrain" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -25.82, -3.62 )
-extra_cull_margin = 128.0
-use_in_baked_light = true
-mesh = SubResource( 6 )
-material/0 = null
-
-[node name="baloons" type="CPUParticles" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4738, 0 )
+[node name="baloons" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -13.3462, -3.62 )
 use_in_baked_light = true
 amount = 32
 lifetime = 24.0
 preprocess = 12.0
-mesh = ExtResource( 4 )
+mesh = ExtResource( 3 )
 emission_shape = 2
 emission_box_extents = Vector3( 512, 1, 512 )
 gravity = Vector3( 0, 1, 0 )
@@ -219,8 +241,8 @@ initial_velocity = 0.0
 angular_velocity = -0.240289
 scale_amount_curve = SubResource( 7 )
 
-[node name="clouds" type="MeshInstance" parent="terrain"]
-transform = Transform( 16, 0, 0, 0, 1, 0, 0, 0, 16, 0, 128, 0 )
+[node name="clouds" type="MeshInstance" parent="."]
+transform = Transform( 16, 0, 0, 0, 1, 0, 0, 0, 16, -1.45, 102.18, -3.62 )
 cast_shadow = 0
 extra_cull_margin = 128.0
 mesh = SubResource( 8 )
@@ -229,47 +251,211 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="big_dust2" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.988382, 0.151992, -6.64376e-09, 0, -4.37114e-08, -1, -0.151992, 0.988382, -4.32035e-08, -24.2803, 37, -107.912 )
+[node name="terrain" type="MeshInstance" parent="."]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, -3.24187, -51.9313, -4.16905 )
+extra_cull_margin = 128.0
+use_in_baked_light = true
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="temple" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7019, 0.59, 59.7437 )
+
+[node name="base" type="CSGBox" parent="temple"]
+width = 24.0
+depth = 40.0
+material = ExtResource( 6 )
+
+[node name="main" type="CSGBox" parent="temple/base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 2 )
+width = 20.0
+height = 20.0
+depth = 30.0
+material = ExtResource( 6 )
+
+[node name="front" type="CSGBox" parent="temple/base/main"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -15 )
+operation = 2
+width = 12.0
+height = 14.0
+material = ExtResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="temple/base/main/front"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+radius = 4.0
+height = 13.87
+smooth_faces = false
+material = ExtResource( 6 )
+
+[node name="OmniLight" type="OmniLight" parent="temple/base/main/front"]
+light_energy = 2.0
+omni_range = 13.7
+
+[node name="windows" type="CSGBox" parent="temple/base/main"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -2, 0 )
+operation = 2
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar6" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar4" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar8" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -4 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar5" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar10" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -8 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar2" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar7" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 4 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar3" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillar9" type="CSGBox" parent="temple/base/main/windows"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillars" type="CSGCylinder" parent="temple/base/main"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, -20 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillars3" type="CSGCylinder" parent="temple/base/main/pillars"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillars2" type="CSGCylinder" parent="temple/base/main/pillars"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="pillars4" type="CSGCylinder" parent="temple/base/main/pillars"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+height = 16.0
+material = ExtResource( 6 )
+
+[node name="roof" type="CSGBox" parent="temple/base/main"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -4 )
+width = 22.0
+depth = 40.0
+material = ExtResource( 6 )
+
+[node name="window" type="CSGCylinder" parent="temple/base/main/roof"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21 )
+operation = 2
+radius = 8.0
+height = 4.0
+sides = 12
+smooth_faces = false
+material = ExtResource( 6 )
+
+[node name="head" type="CSGSphere" parent="temple/base/main/roof"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
+radius = 8.0
+material = ExtResource( 6 )
+
+[node name="front_pillars" type="CSGCylinder" parent="temple/base/main"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -24 )
+radius = 2.0
+height = 24.0
+sides = 12
+material = ExtResource( 6 )
+
+[node name="front_pillars2" type="CSGCylinder" parent="temple/base/main/front_pillars"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0 )
+radius = 2.0
+height = 24.0
+sides = 12
+material = ExtResource( 6 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="temple/base/main/front_pillars/front_pillars2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
+radius = 2.0
+height = 3.0
+sides = 12
+cone = true
+material = ExtResource( 6 )
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="temple/base/main/front_pillars"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
+radius = 2.0
+height = 3.0
+sides = 12
+cone = true
+material = ExtResource( 6 )
+
+[node name="big_dust2" type="MeshInstance" parent="."]
+transform = Transform( 0.988382, 0.151992, -6.64376e-09, 0, -4.37114e-08, -1, -0.151992, 0.988382, -4.32035e-08, -25.7303, 11.18, -111.532 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="big_dust7" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.993947, -0.10986, 4.80213e-09, 0, -4.37114e-08, -1, 0.10986, 0.993947, -4.34468e-08, 11.8452, 33.584, -29.6399 )
+[node name="big_dust7" type="MeshInstance" parent="."]
+transform = Transform( 0.993947, -0.10986, 4.80213e-09, 0, -4.37114e-08, -1, 0.10986, 0.993947, -4.34468e-08, 10.3952, 7.764, -33.2599 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="big_dust4" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.998973, -0.0453117, 1.98064e-09, 0, -4.37114e-08, -1, 0.0453117, 0.998973, -4.36665e-08, 5.82411, 37, 105.83 )
+[node name="big_dust4" type="MeshInstance" parent="."]
+transform = Transform( 0.998973, -0.0453117, 1.98064e-09, 0, -4.37114e-08, -1, 0.0453117, 0.998973, -4.36665e-08, 4.37411, 11.18, 187.496 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="big_dust5" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.429168, -0.903225, 3.94812e-08, 0, -4.37114e-08, -1, 0.903225, 0.429168, -1.87595e-08, -147.709, 37, 42.611 )
+[node name="big_dust5" type="MeshInstance" parent="."]
+transform = Transform( 0.429168, -0.903225, 3.94812e-08, 0, -4.37114e-08, -1, 0.903225, 0.429168, -1.87595e-08, -149.159, 11.18, 38.991 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="big_dust6" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.0709816, -0.997478, 4.36011e-08, 0, -4.37114e-08, -1, 0.997478, 0.0709816, -3.1027e-09, 234.618, 37, 9.49601 )
+[node name="big_dust6" type="MeshInstance" parent="."]
+transform = Transform( 0.0709816, -0.997478, 4.36011e-08, 0, -4.37114e-08, -1, 0.997478, 0.0709816, -3.1027e-09, 233.168, 11.18, 5.87601 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="big_dust3" type="MeshInstance" parent="terrain"]
-transform = Transform( 0.893625, -0.448815, 1.96183e-08, 0, -4.37114e-08, -1, 0.448815, 0.893625, -3.90616e-08, 96.138, 37, -159.089 )
+[node name="big_dust3" type="MeshInstance" parent="."]
+transform = Transform( 0.893625, -0.448815, 1.96183e-08, 0, -4.37114e-08, -1, 0.448815, 0.893625, -3.90616e-08, 94.688, 11.18, -162.709 )
 cast_shadow = 0
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="glista" type="Path" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.003, 0, -13.0032 )
+[node name="glista" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.553, -25.82, -16.6232 )
 curve = SubResource( 10 )
 
-[node name="body" type="CSGPolygon" parent="terrain/glista"]
+[node name="body" type="CSGPolygon" parent="glista"]
 invert_faces = true
 polygon = PoolVector2Array( 2, 0, 0, 2, -2, 0, 0, -2 )
 mode = 2
@@ -280,9 +466,25 @@ path_local = false
 path_continuous_u = true
 path_joined = false
 smooth_faces = true
-material = ExtResource( 7 )
+material = ExtResource( 8 )
 
-[node name="dust" type="CPUParticles" parent="terrain/glista"]
+[node name="head" type="CSGMesh" parent="glista"]
+editor/display_folded = true
+transform = Transform( 0.967474, -0.226709, 0.112242, -0.218685, -0.52647, 0.821588, -0.127169, -0.819409, -0.558924, -9.375, 28.977, 17.94 )
+mesh = ExtResource( 9 )
+
+[node name="mounth" type="CSGMesh" parent="glista/head"]
+transform = Transform( 0.954397, 0, -0.298541, 0, 1, 0, 0.298541, 0, 0.954397, 0.071, 2.049, 0 )
+operation = 2
+mesh = ExtResource( 10 )
+
+[node name="OmniLight" type="OmniLight" parent="glista/head"]
+transform = Transform( 1, 2.98023e-08, -1.49012e-08, -7.45058e-09, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 2.43, 0 )
+light_color = Color( 1, 0, 0, 1 )
+light_energy = 3.0
+omni_range = 7.0
+
+[node name="dust" type="CPUParticles" parent="glista"]
 transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -30.627, 23.827, 7.25 )
 use_in_baked_light = true
 amount = 64
@@ -301,78 +503,69 @@ angle = 720.0
 angle_random = 1.0
 scale_amount_curve = SubResource( 12 )
 
-[node name="head" type="CSGMesh" parent="terrain/glista"]
-editor/display_folded = true
-transform = Transform( 0.967474, -0.226709, 0.112242, -0.218685, -0.52647, 0.821588, -0.127169, -0.819409, -0.558924, -9.375, 28.977, 17.94 )
-mesh = ExtResource( 9 )
+[node name="stone" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.873098, 0.407228, 0.268076, -0.421506, 0.906813, -0.00471237, -0.245014, -0.108881, 0.963386, -7.66, -0.493999, 3.07 )
 
-[node name="mounth" type="CSGMesh" parent="terrain/glista/head"]
-transform = Transform( 0.954397, 0, -0.298541, 0, 1, 0, 0.298541, 0, 0.954397, 0.071, 2.049, 0 )
-operation = 2
-mesh = ExtResource( 10 )
+[node name="stone5" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.532791, 0.24344, -0.810475, -0.421506, 0.906813, -0.00471237, 0.733802, 0.344131, 0.585753, 27.9993, -0.493999, -22.9887 )
 
-[node name="OmniLight" type="OmniLight" parent="terrain/glista/head"]
-transform = Transform( 1, 2.98023e-08, -1.49012e-08, -7.45058e-09, 1, -1.19209e-07, 0, 1.19209e-07, 1, 0, 2.43, 0 )
-light_color = Color( 1, 0, 0, 1 )
-light_energy = 3.0
-omni_range = 7.0
+[node name="stone6" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.314123, 0.150882, 0.937316, -0.421506, 0.906813, -0.00471237, -0.850681, -0.393604, 0.348448, -31.25, -0.493999, -31.492 )
 
-[node name="stone" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( 0.873098, 0.407228, 0.268076, -0.421506, 0.906813, -0.00471237, -0.245014, -0.108881, 0.963386, -6.21, 25.326, 6.69 )
+[node name="stone2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.619024, -0.0463205, 0.784004, -0.243425, 0.937782, 0.247607, -0.746694, -0.344121, 0.569234, -23.0692, -0.493999, 3.72372 )
 
-[node name="stone5" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( 0.532791, 0.24344, -0.810475, -0.421506, 0.906813, -0.00471237, 0.733802, 0.344131, 0.585753, 29.4493, 25.326, -19.3687 )
+[node name="stone7" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.619024, -0.0463205, 0.784004, -0.243425, 0.937782, 0.247607, -0.746694, -0.344121, 0.569234, 73.7593, -0.493999, 47.0634 )
 
-[node name="stone6" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( 0.314123, 0.150882, 0.937316, -0.421506, 0.906813, -0.00471237, -0.850681, -0.393604, 0.348448, -29.8, 25.326, -27.872 )
+[node name="stone3" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.776106, -0.656256, 0.861247, -0.486851, 1.87556, 0.247607, -1.77782, -0.22713, -0.443784, -20.3609, -0.0541992, -0.66556 )
 
-[node name="stone2" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( 0.619024, -0.0463205, 0.784004, -0.243425, 0.937782, 0.247607, -0.746694, -0.344121, 0.569234, -21.6192, 25.326, 7.34372 )
+[node name="stone4" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1.17031, -1.58838, -0.163877, 0.0205039, -0.418633, 0.977794, -1.62171, 1.14096, 0.130625, 19.764, -0.6, 44.239 )
 
-[node name="stone3" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( -0.776106, -0.656256, 0.861247, -0.486851, 1.87556, 0.247607, -1.77782, -0.22713, -0.443784, -18.9109, 25.7658, 2.95444 )
+[node name="stone_big" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1.41504, 4.07753, 2.52417, -3.057, 2.7947, -2.80079, -3.69492, -0.750633, 3.28391, -11.9266, 4.3062, -72.3008 )
 
-[node name="stone4" parent="terrain" instance=ExtResource( 11 )]
-transform = Transform( -1.17031, -1.58838, -0.163877, 0.0205039, -0.418633, 0.977794, -1.62171, 1.14096, 0.130625, 21.214, 25.22, 47.859 )
+[node name="stone_big7" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1.41504, 4.07753, 2.52417, -3.057, 2.7947, -2.80079, -3.69492, -0.750633, 3.28391, 92.3081, 4.3062, 124.648 )
 
-[node name="stone_big" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( 1.41504, 4.07753, 2.52417, -3.057, 2.7947, -2.80079, -3.69492, -0.750633, 3.28391, -10.4766, 30.1262, -68.6808 )
+[node name="stone_big2" parent="." instance=ExtResource( 13 )]
+transform = Transform( 2.71567, 5.65325, -4.53647, -5.11521, 1.87348, -5.38735, -1.56836, 3.67843, 9.71581, 24.5248, 4.3062, -85.4703 )
 
-[node name="stone_big2" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( 2.71567, 5.65325, -4.53647, -5.11521, 1.87348, -5.38735, -1.56836, 3.67843, 9.71581, 25.9748, 30.1262, -81.8503 )
+[node name="stone_big3" parent="." instance=ExtResource( 13 )]
+transform = Transform( 3.53127, 3.04616, 8.17627, -3.70075, 5.50577, 0.365199, -3.13601, -3.06716, 8.77584, 88.9613, 6.4004, -156.962 )
 
-[node name="stone_big3" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( 3.53127, 3.04616, 8.17627, -3.70075, 5.50577, 0.365199, -3.13601, -3.06716, 8.77584, 90.4113, 32.2204, -153.342 )
+[node name="stone_big4" parent="." instance=ExtResource( 13 )]
+transform = Transform( 11.8104, -6.90285, -2.97739, 2.68055, 9.04719, -10.3423, 7.02345, 8.15469, 8.95389, -178.738, 9.48126, -210.066 )
 
-[node name="stone_big4" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( 10.1232, -5.91672, -2.55205, 2.29761, 7.75474, -8.86482, 6.02009, 6.98974, 7.67477, -177.288, 24.4419, -206.446 )
+[node name="stone_big5" parent="." instance=ExtResource( 13 )]
+transform = Transform( -4.07451, -7.95092, -8.01132, 2.29761, 7.75474, -8.86482, 11.0508, -4.54389, -1.11072, 201.927, -1.3781, -248.514 )
 
-[node name="stone_big5" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( -4.07451, -7.95092, -8.01132, 2.29761, 7.75474, -8.86482, 11.0508, -4.54389, -1.11072, 203.377, 24.4419, -244.894 )
-
-[node name="stone_big6" parent="terrain" instance=ExtResource( 12 )]
-transform = Transform( 11.4984, 0.479303, 3.39948, 2.29761, 7.75474, -8.86482, -2.55092, 9.14517, 7.33884, 262.09, 24.4419, -244.894 )
+[node name="stone_big6" parent="." instance=ExtResource( 13 )]
+transform = Transform( 11.4984, 0.479303, 3.39948, 2.29761, 7.75474, -8.86482, -2.55092, 9.14517, 7.33884, 260.64, -1.3781, -248.514 )
 
 [node name="shrooms" type="Position3D" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0 )
 
-[node name="shroom" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405125, 0.0885878, -4.08977 )
 
-[node name="shroom2" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom2" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 0.186949, 0.199179, 0, -0.165982, 0.224339, 0, 0, 0, 0.25, 1.02492, 0.187856, -3.96485 )
 
-[node name="shroom3" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom3" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0.931327, -0.301565, -3.0089 )
 
-[node name="shroom4" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom4" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 0.0583069, -0.0586865, -0.188513, 0.0976107, 0.314213, 3.28905e-09, 0.164537, -0.165608, 0.0668034, 0.193228, 0.0885878, -4.64314 )
 
-[node name="shroom6" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom6" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 0.2, 0, 0, 0, 0.38, 0, 0, 0, 0.2, -0.424875, -0.21766, -3.20677 )
 
-[node name="shroom5" parent="shrooms" instance=ExtResource( 13 )]
+[node name="shroom5" parent="shrooms" instance=ExtResource( 14 )]
 transform = Transform( 0.6, 0, 0, 0, 0.4, 0, 0, 0, 0.6, -0.829085, -0.00983485, -5.07489 )
 
-[node name="P1X" parent="." instance=ExtResource( 14 )]
+[node name="P1X" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -27.72, 0.61, 49.7 )

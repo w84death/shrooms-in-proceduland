@@ -21,7 +21,7 @@ boot_splash/bg_color=Color( 0.188235, 0.0784314, 0.290196, 1 )
 
 [autoload]
 
-music_thread="*res://scenes/small/music_thread.tscn"
+soundtrack_player="*res://music/soundtrack_player.tscn"
 
 [display]
 
@@ -32,7 +32,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "midi" )
 
 [rendering]
 

@@ -3,16 +3,13 @@
 [ext_resource path="res://addons/midi/MidiPlayer.gd" type="Script" id=1]
 [ext_resource path="res://addons/midi/icon.png" type="Texture" id=2]
 
-[node name="music_thread" type="AudioStreamPlayer"]
-volume_db = -15.0
+[node name="GodotMIDIPlayer" type="AudioStreamPlayer"]
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_icon": ExtResource( 2 )
 }
-file = "res://music/soundtrack.ogg.mid"
+file = "res://music/soundtrack.mid"
 playing = true
-volume_db = -15.0
+play_speed = 4.0
 loop = true
-load_all_voices_from_soundfont = true
-no_reload_soundfont = true
-soundfont = "res://music/vibra.sf2"
+soundfont = "res://music/soundfont.sf2"
