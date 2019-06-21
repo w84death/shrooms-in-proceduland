@@ -162,7 +162,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 258.705, 160.208 )
+graph_offset = Vector2( 258.705, 10.208 )
 flags/world_vertex_coords = true
 nodes/fragment/0/position = Vector2( 1000, 40 )
 nodes/fragment/2/node = SubResource( 8 )

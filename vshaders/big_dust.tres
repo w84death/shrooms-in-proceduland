@@ -287,7 +287,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 338.81, -2.8847 )
+graph_offset = Vector2( 29.5348, -2.8847 )
 modes/cull = 2
 nodes/fragment/0/position = Vector2( 1620, 40 )
 nodes/fragment/2/node = SubResource( 9 )

@@ -1,21 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://materials/granit.material" type="Material" id=1]
-[ext_resource path="res://textures/noise_base.tres" type="Texture" id=2]
-[ext_resource path="res://textures/noise_nrm.tres" type="Texture" id=3]
+[ext_resource path="res://textures/noise_big.tres" type="Texture" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.403922, 0.317647, 0.0588235, 1 )
+albedo_color = Color( 0.733333, 0.729412, 0.643137, 1 )
 albedo_texture = ExtResource( 2 )
 metallic = 0.53
 metallic_specular = 0.0
 metallic_texture = ExtResource( 2 )
 metallic_texture_channel = 4
 roughness_texture_channel = 4
-normal_enabled = true
-normal_scale = 8.0
-normal_texture = ExtResource( 3 )
-uv1_scale = Vector3( 12, 2, 1 )
+uv1_scale = Vector3( 12, 4, 4 )
 
 [node name="pyramid" type="Spatial"]
 
