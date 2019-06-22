@@ -9,4 +9,5 @@ lacunarity = 4.0
 
 [resource]
 seamless = true
+as_normalmap = true
 noise = SubResource( 1 )

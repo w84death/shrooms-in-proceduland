@@ -82,7 +82,7 @@ operator = 2
 [sub_resource type="VisualShaderNodeScalarConstant" id=27]
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=28]
-constant = 0.5
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeColorOp" id=29]
 output_port_for_preview = 0
@@ -95,7 +95,7 @@ constant = Color( 0.316406, 0.316406, 0.316406, 1 )
 
 [resource]
 code = "shader_type spatial;
-render_mode cull_disabled;
+render_mode cull_disabled, unshaded;
 
 uniform sampler2D tex_frg_14;uniform sampler2D tex_frg_3;uniform vec4 color : hint_color;
 uniform sampler2D tex_frg_30;uniform sampler2D tex_frg_16;
@@ -272,7 +272,7 @@ void fragment() {
 
 // Scalar:6
 	float n_out6p0;
-	n_out6p0 = 0.500000;
+	n_out6p0 = 1.000000;
 
 // Output:0
 	ALBEDO = n_out34p0;
@@ -287,8 +287,9 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 29.5348, -2.8847 )
+graph_offset = Vector2( 735.853, -83.291 )
 modes/cull = 2
+flags/unshaded = true
 nodes/fragment/0/position = Vector2( 1620, 40 )
 nodes/fragment/2/node = SubResource( 9 )
 nodes/fragment/2/position = Vector2( -1280, 300 )

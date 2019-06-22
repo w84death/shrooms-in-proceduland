@@ -4,10 +4,7 @@
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 1 )
-size = Vector3( 5, 5, 5 )
-subdivide_width = 12
-subdivide_height = 12
-subdivide_depth = 12
+size = Vector3( 5, 4.61, 4.96 )
 
 [node name="stone_big" type="CSGMesh"]
 transform = Transform( 0.674734, 0.738061, 0, -0.611399, 0.558939, -0.560159, -0.413431, 0.377958, 0.828385, 0, 0, 0 )

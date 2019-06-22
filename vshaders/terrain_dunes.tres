@@ -4,7 +4,6 @@
 operator = 2
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=2]
-constant = 0.26
 
 [sub_resource type="VisualShaderNodeColorUniform" id=3]
 uniform_name = "color"
@@ -34,12 +33,13 @@ uniform_name = "texture"
 
 [sub_resource type="VisualShaderNodeTextureUniform" id=12]
 uniform_name = "normal"
+texture_type = 2
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=13]
-constant = 0.1
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=14]
-constant = 1.0
+constant = 0.5
 
 [sub_resource type="VisualShaderNodeInput" id=15]
 input_name = "uv"
@@ -87,7 +87,7 @@ uniform float uv_scale_color;
 uniform sampler2D texture;
 uniform vec4 color : hint_color;
 uniform float scale_normal;
-uniform sampler2D normal;
+uniform sampler2D normal : hint_normal;
 uniform vec4 transmision_color : hint_color;
 
 
@@ -225,15 +225,15 @@ void fragment() {
 
 // Scalar:12
 	float n_out12p0;
-	n_out12p0 = 0.260000;
+	n_out12p0 = 0.000000;
 
-// Scalar:4
-	float n_out4p0;
-	n_out4p0 = 1.000000;
+// Scalar:25
+	float n_out25p0;
+	n_out25p0 = 1.000000;
 
 // Scalar:3
 	float n_out3p0;
-	n_out3p0 = 0.100000;
+	n_out3p0 = 0.500000;
 
 // ScalarUniform:22
 	float n_out22p0;
@@ -274,7 +274,7 @@ void fragment() {
 // Output:0
 	ALBEDO = n_out14p0;
 	METALLIC = n_out12p0;
-	ROUGHNESS = n_out4p0;
+	ROUGHNESS = n_out25p0;
 	SPECULAR = n_out3p0;
 	NORMALMAP = n_out24p0;
 	NORMALMAP_DEPTH = n_out17p0;
@@ -287,7 +287,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 138.68, 42.1458 )
+graph_offset = Vector2( 434.68, 111.146 )
 flags/vertex_lighting = true
 nodes/vertex/0/position = Vector2( 1800, 80 )
 nodes/vertex/2/node = SubResource( 24 )
@@ -310,10 +310,8 @@ nodes/vertex/15/node = SubResource( 23 )
 nodes/vertex/15/position = Vector2( 680, 100 )
 nodes/vertex/connections = PoolIntArray( 2, 0, 5, 0, 4, 0, 0, 0, 6, 0, 4, 1, 5, 0, 4, 0, 5, 2, 4, 2, 5, 1, 6, 0, 14, 0, 6, 1, 7, 0, 14, 1, 13, 0, 14, 0, 5, 0, 10, 0, 5, 2, 10, 1, 10, 0, 15, 0, 15, 0, 7, 0 )
 nodes/fragment/0/position = Vector2( 1420, 240 )
-nodes/fragment/3/node = SubResource( 13 )
+nodes/fragment/3/node = SubResource( 14 )
 nodes/fragment/3/position = Vector2( 1140, 360 )
-nodes/fragment/4/node = SubResource( 14 )
-nodes/fragment/4/position = Vector2( 1140, 300 )
 nodes/fragment/5/node = SubResource( 15 )
 nodes/fragment/5/position = Vector2( -280, 140 )
 nodes/fragment/6/node = SubResource( 16 )
@@ -329,9 +327,9 @@ nodes/fragment/10/position = Vector2( 180, 220 )
 nodes/fragment/12/node = SubResource( 2 )
 nodes/fragment/12/position = Vector2( 1140, 240 )
 nodes/fragment/13/node = SubResource( 3 )
-nodes/fragment/13/position = Vector2( 900, 160 )
+nodes/fragment/13/position = Vector2( 1020, 120 )
 nodes/fragment/14/node = SubResource( 4 )
-nodes/fragment/14/position = Vector2( 1120, 120 )
+nodes/fragment/14/position = Vector2( 1220, 100 )
 nodes/fragment/15/node = SubResource( 5 )
 nodes/fragment/15/position = Vector2( 1140, 520 )
 nodes/fragment/17/node = SubResource( 6 )
@@ -347,5 +345,7 @@ nodes/fragment/22/position = Vector2( 160, 440 )
 nodes/fragment/23/node = SubResource( 11 )
 nodes/fragment/23/position = Vector2( 680, 80 )
 nodes/fragment/24/node = SubResource( 12 )
-nodes/fragment/24/position = Vector2( 920, 300 )
-nodes/fragment/connections = PoolIntArray( 3, 0, 0, 4, 4, 0, 0, 3, 5, 0, 8, 0, 8, 0, 9, 0, 6, 0, 9, 1, 9, 0, 7, 0, 10, 0, 7, 1, 8, 1, 10, 0, 6, 0, 10, 1, 12, 0, 0, 2, 14, 0, 0, 0, 13, 0, 14, 1, 15, 0, 0, 17, 17, 0, 0, 9, 8, 0, 19, 0, 8, 1, 20, 0, 22, 0, 19, 1, 22, 0, 20, 1, 19, 0, 21, 0, 20, 0, 21, 1, 7, 0, 23, 0, 23, 0, 14, 0, 21, 0, 24, 0, 24, 0, 0, 8 )
+nodes/fragment/24/position = Vector2( 940, 340 )
+nodes/fragment/25/node = SubResource( 13 )
+nodes/fragment/25/position = Vector2( 1140, 300 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 4, 5, 0, 8, 0, 8, 0, 9, 0, 6, 0, 9, 1, 9, 0, 7, 0, 10, 0, 7, 1, 8, 1, 10, 0, 6, 0, 10, 1, 12, 0, 0, 2, 14, 0, 0, 0, 13, 0, 14, 1, 15, 0, 0, 17, 17, 0, 0, 9, 8, 0, 19, 0, 8, 1, 20, 0, 22, 0, 19, 1, 22, 0, 20, 1, 19, 0, 21, 0, 20, 0, 21, 1, 7, 0, 23, 0, 23, 0, 14, 0, 21, 0, 24, 0, 24, 0, 0, 8, 25, 0, 0, 3 )
