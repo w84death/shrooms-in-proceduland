@@ -25,7 +25,6 @@ input_name = "uv"
 [sub_resource type="VisualShaderNodeVectorDecompose" id=9]
 
 [sub_resource type="VisualShaderNodeVectorCompose" id=10]
-output_port_for_preview = 0
 
 [sub_resource type="VisualShaderNodeScalarOp" id=11]
 
@@ -82,6 +81,7 @@ default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 8, 1, 1 ) ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=27]
+constant = 1.0
 
 [sub_resource type="VisualShaderNodeScalarConstant" id=28]
 constant = 0.5
@@ -92,7 +92,7 @@ operator = 5
 [sub_resource type="VisualShaderNodeVectorDecompose" id=30]
 
 [sub_resource type="VisualShaderNodeColorConstant" id=31]
-constant = Color( 0.208859, 0.208859, 0.208859, 1 )
+constant = Color( 0.35925, 0.35925, 0.35925, 1 )
 
 [resource]
 code = "shader_type spatial;
@@ -199,7 +199,7 @@ void fragment() {
 // Color:9
 	vec3 n_out9p0;
 	float n_out9p1;
-	n_out9p0 = vec3(0.208859,0.208859,0.208859);
+	n_out9p0 = vec3(0.359250,0.359250,0.359250);
 	n_out9p1 = 1.000000;
 
 // ColorOp:7
@@ -242,7 +242,7 @@ void fragment() {
 
 // Scalar:5
 	float n_out5p0;
-	n_out5p0 = 0.000000;
+	n_out5p0 = 1.000000;
 
 // Scalar:6
 	float n_out6p0;
@@ -261,7 +261,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -186.953, -127.968 )
+graph_offset = Vector2( 644.184, -24.968 )
 modes/blend = 1
 modes/cull = 2
 nodes/fragment/0/position = Vector2( 1800, 20 )
@@ -316,7 +316,7 @@ nodes/fragment/31/position = Vector2( 640, 460 )
 nodes/fragment/32/node = SubResource( 19 )
 nodes/fragment/32/position = Vector2( 1480, 200 )
 nodes/fragment/33/node = SubResource( 20 )
-nodes/fragment/33/position = Vector2( 840, 440 )
+nodes/fragment/33/position = Vector2( 860, 440 )
 nodes/fragment/35/node = SubResource( 21 )
 nodes/fragment/35/position = Vector2( -1340, 120 )
 nodes/fragment/36/node = SubResource( 22 )

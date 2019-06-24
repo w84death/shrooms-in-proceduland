@@ -8,6 +8,7 @@
 [sub_resource type="Animation" id=1]
 resource_name = "end"
 length = 8.0
+loop = true
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -78,7 +79,7 @@ light_bake_mode = 2
 environment = ExtResource( 3 )
 
 [node name="kleszcz" parent="camera" instance=ExtResource( 4 )]
-transform = Transform( -2.18557e-07, -1, 4.37114e-08, -7.64274e-15, -4.37114e-08, -1, 1, -2.18557e-07, 1.91069e-15, 0, 0, -12 )
+transform = Transform( -0.107001, 0.994259, 4.37114e-08, -4.67717e-09, 4.34604e-08, -1, -0.994259, -0.107001, 1.91069e-15, 0, 0, -12 )
 
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
@@ -93,7 +94,7 @@ margin_top = 90.0
 margin_bottom = 90.0
 
 [node name="credits" type="Control" parent="GUI/center"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0.899608, 0.785882, 0.418039, 1 )
 
 [node name="by" type="Label" parent="GUI/center/credits"]
 anchor_left = 1.0
@@ -123,6 +124,7 @@ YUI KINOMOT"
 modulate = Color( 0, 0, 0, 0 )
 
 [node name="what" type="Label" parent="GUI/center/info"]
+visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -141,5 +143,5 @@ margin_left = 20.0
 margin_top = -24.0
 margin_right = 221.0
 margin_bottom = 24.0
-text = "HTTPS://P1X.IN"
+text = "2019"
 valign = 1

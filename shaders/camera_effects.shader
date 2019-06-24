@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode depth_test_disable, depth_draw_never, unshaded, cull_disabled;
+render_mode depth_test_disable,  unshaded, depth_draw_never, cull_disabled;
 
 uniform float light : hint_range(0, 1);
 uniform float extend : hint_range(0, 1);

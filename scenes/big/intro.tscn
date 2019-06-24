@@ -48,66 +48,66 @@ tracks/2/keys = {
 "values": [ 1.0, 1.0, 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("camera:environment:fog_height_curve")
+tracks/3/path = NodePath("camera/P1X/boom:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 3.8, 6.2, 7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 1.03527, 1.03527, 0.129408, 0.129408 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("camera/P1X/boom:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 1.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("camera/P1X/smoke:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("camera/P1X/smoke:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("camera/P1X/fireball:emitting")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("camera/P1X/fireball:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "next_scene"
 } ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("camera:environment:tonemap_exposure")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 6.4, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0, 1.0, 0.0 ]
 }
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -142,9 +142,8 @@ autoplay = "intro"
 anims/intro = SubResource( 1 )
 
 [node name="sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.854658, 0.125604, 0.503769, 0, 0.970296, -0.241922, -0.519191, 0.206761, 0.829271, 0, 7, 0 )
+transform = Transform( 0.974883, 0.0428435, -0.218556, 0, 0.981323, 0.192369, 0.222715, -0.187537, 0.956675, 0, 7, 0 )
 light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
-light_energy = 0.0
 light_indirect_energy = 0.0
 light_bake_mode = 2
 
@@ -157,7 +156,7 @@ fov = 110.0
 transform = Transform( 1, 0, 0, 4.65661e-10, 1, 0, 0, 1.49012e-08, 1, 0, 0, -0.35 )
 
 [node name="P1X" parent="camera" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4 )
 
 [node name="P" parent="camera/P1X" index="0"]
 editor/display_folded = true
@@ -181,6 +180,7 @@ flag_align_y = true
 spread = 122.73
 flatness = 0.77
 gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.26117e-44
 scale_amount_random = 0.5
 scale_amount_curve = SubResource( 4 )
 color_ramp = SubResource( 5 )

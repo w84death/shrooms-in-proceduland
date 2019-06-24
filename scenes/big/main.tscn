@@ -28,10 +28,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5, 5.5, 9.2, 9.7, 13.9, 14.8, 19, 20, 26.9, 27.9, 29.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 21.5, 26.9, 30 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.267, 3.86, 76.16 ), Vector3( 1.267, 3.86, 69.97 ), Vector3( -7.543, 3.86, 35.665 ), Vector3( -23.179, 3.86, 22.181 ), Vector3( -4.743, 0.991, 4.151 ), Vector3( -2.883, 0.421, -5.519 ), Vector3( -0.433, 1.561, -7.609 ), Vector3( 84.557, 7.481, -1.639 ), Vector3( 72.352, 2.636, 20.025 ), Vector3( 54.7491, 3.21987, 17.5176 ), Vector3( 46.937, 156.621, -68.579 ), Vector3( 272.197, 280.331, -470.749 ) ]
+"values": [ Vector3( 1.267, 3.86, 76.16 ), Vector3( 1.267, 3.86, 69.97 ), Vector3( -7.543, 3.86, 35.665 ), Vector3( -23.179, 3.86, 22.181 ), Vector3( -4.743, 0.991, 4.151 ), Vector3( -2.883, 0.421, -5.519 ), Vector3( -0.433, 1.561, -10.359 ), Vector3( 84.557, 7.481, -1.639 ), Vector3( 72.352, 2.636, 20.025 ), Vector3( 54.7491, 3.21987, 17.5176 ), Vector3( 37.519, 3.22, 17.518 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("camera:rotation_degrees")
@@ -40,10 +40,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 5, 5.5, 9.2, 9.7, 13.9, 14.8, 19, 20, 26.9, 27.9, 29.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 22.9, 26.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 11.6177, 4.89023, 0 ), Vector3( 11.618, 4.89, -1.85 ), Vector3( 9.938, -10.91, -1.732 ), Vector3( 3.352, -36.37, -1.676 ), Vector3( 9.198, -42.65, 7.19 ), Vector3( 17.998, -141.68, 7.19 ), Vector3( 4.048, -167.68, -2.92 ), Vector3( 7.008, -193.34, 0 ), Vector3( 17.093, -221.329, 4.264 ), Vector3( 17.6836, -220.51, 3.40135 ), Vector3( 12.338, -219.26, 0.43 ), Vector3( 6.338, -219.26, 0.43 ) ]
+"values": [ Vector3( 11.6177, 4.89023, 0 ), Vector3( 11.618, 4.89, -1.85 ), Vector3( 9.938, -10.91, -1.732 ), Vector3( 3.352, -36.37, -1.676 ), Vector3( 9.198, -42.65, 7.19 ), Vector3( 17.998, -141.68, 7.19 ), Vector3( 4.048, -167.68, -2.92 ), Vector3( 3.188, -214.17, 0 ), Vector3( 17.093, -221.329, 4.264 ), Vector3( 17.6836, -220.51, 3.40135 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("camera:current")
@@ -70,6 +70,30 @@ tracks/3/keys = {
 "args": [  ],
 "method": "next_scene"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("WorldEnvironment:environment:dof_blur_far_distance")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 24, 26.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 64.0, 64.0, 512.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WorldEnvironment:environment:dof_blur_near_distance")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 24, 26.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 4.0, 4.0, 32.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -151,11 +175,34 @@ background_mode = 2
 background_sky = SubResource( 5 )
 fog_color = Color( 0.639216, 0.584314, 0.235294, 1 )
 fog_sun_amount = 0.54
-fog_depth_end = 128.0
+fog_depth_begin = 64.0
+fog_depth_end = 512.0
 fog_transmit_enabled = true
 fog_height_enabled = true
 fog_height_min = 2.0
 fog_height_max = -2.0
+tonemap_mode = 2
+tonemap_exposure = 0.8
+tonemap_white = 1.7
+ss_reflections_enabled = true
+ss_reflections_max_steps = 32
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 4.0
+ssao_radius2 = 4.0
+ssao_intensity2 = 2.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+ssao_quality = 1
+ssao_blur = 1
+dof_blur_far_enabled = true
+dof_blur_far_distance = 64.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 4.0
+glow_enabled = true
+glow_strength = 0.7
+glow_bloom = 0.25
+glow_blend_mode = 1
 
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 0 ), 0.0, 2.01524, 0, 0, Vector2( 0.774609, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -231,7 +278,7 @@ directional_shadow_mode = 0
 directional_shadow_max_distance = 128.0
 
 [node name="camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.739274, 0.246711, 0.626583, 0.0655802, 0.952423, -0.297634, -0.670204, -0.178941, -0.720281, 65.719, 2.85601, 19.0802 )
+transform = Transform( -0.803697, 0.0942228, 0.58753, 0.0222734, 0.991453, -0.128532, -0.594622, -0.0902146, -0.798927, 78.5291, 5.08812, 9.06055 )
 far = 2048.0
 
 [node name="baloons" type="CPUParticles" parent="."]
@@ -272,6 +319,7 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7019, 0.59, 59.7437 )
 
 [node name="base" type="CSGBox" parent="temple"]
+editor/display_folded = true
 width = 24.0
 depth = 40.0
 material = ExtResource( 6 )
@@ -472,7 +520,6 @@ mesh = SubResource( 11 )
 material/0 = null
 
 [node name="glista" type="Path" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.553, -25.82, -16.6232 )
 curve = SubResource( 12 )
 
