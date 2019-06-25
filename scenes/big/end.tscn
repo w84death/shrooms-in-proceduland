@@ -8,7 +8,6 @@
 [sub_resource type="Animation" id=1]
 resource_name = "end"
 length = 8.0
-loop = true
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -71,7 +70,6 @@ anims/end = SubResource( 1 )
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.98158, 0.00827614, 0.19087, 0, 0.999062, -0.0433195, -0.191049, 0.0425216, 0.980659, 0, 7, 0 )
 light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
-light_energy = 2.0
 light_indirect_energy = 0.0
 light_bake_mode = 2
 
@@ -79,7 +77,7 @@ light_bake_mode = 2
 environment = ExtResource( 3 )
 
 [node name="kleszcz" parent="camera" instance=ExtResource( 4 )]
-transform = Transform( -0.379052, 0.925375, 4.37114e-08, -1.65689e-08, 4.04494e-08, -1, -0.925375, -0.379052, 1.91069e-15, 0, 0, -12 )
+transform = Transform( 0.150226, 0.988652, 4.37114e-08, 6.56657e-09, 4.32153e-08, -1, -0.988652, 0.150226, 1.91069e-15, 0, 0, -12 )
 
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
@@ -94,7 +92,7 @@ margin_top = 90.0
 margin_bottom = 90.0
 
 [node name="credits" type="Control" parent="GUI/center"]
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0.861961, 0.748235, 0.455686, 1 )
 
 [node name="by" type="Label" parent="GUI/center/credits"]
 anchor_left = 1.0
@@ -121,7 +119,7 @@ MIREK HARENDA
 YUI KINOMOT"
 
 [node name="info" type="Control" parent="GUI/center"]
-modulate = Color( 0.811765, 0.698039, 0.505882, 1 )
+modulate = Color( 0, 0, 0, 0 )
 
 [node name="what" type="Label" parent="GUI/center/info"]
 anchor_left = 1.0

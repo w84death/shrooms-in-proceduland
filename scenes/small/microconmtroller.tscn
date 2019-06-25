@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://materials/color_black.material" type="Material" id=1]
+[ext_resource path="res://materials/color_metal.material" type="Material" id=2]
+
+[node name="microconmtroller" type="CSGBox"]
+transform = Transform( -0.331836, 0, -0.943337, 0, 1, 0, 0.943337, 0, -0.331836, 59.2773, 0.932032, 27.2138 )
+width = 0.88
+height = 0.34
+depth = 0.64
+material = ExtResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425575, 0.157728, -7.62939e-06 )
+operation = 2
+radius = 0.2
+height = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.1, 0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.1, -0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox6" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.1, 0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.1, -0.35 )
+width = 0.2
+height = 0.7
+depth = 0.2
+material = ExtResource( 2 )

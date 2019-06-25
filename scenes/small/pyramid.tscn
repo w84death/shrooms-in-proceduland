@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://materials/sand_blocks.material" type="Material" id=1]
 [ext_resource path="res://textures/noise_big.tres" type="Texture" id=2]
+[ext_resource path="res://materials/energy.material" type="Material" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 18, 2, 18 )
@@ -15,6 +16,13 @@ metallic_texture = ExtResource( 2 )
 metallic_texture_channel = 4
 roughness_texture_channel = 4
 uv1_scale = Vector3( 12, 4, 4 )
+
+[sub_resource type="SphereMesh" id=3]
+material = ExtResource( 3 )
+radius = 5.0
+height = 10.0
+radial_segments = 12
+rings = 6
 
 [node name="pyramid" type="Spatial"]
 
@@ -73,3 +81,17 @@ width = 1.0
 height = 11.0
 depth = 4.0
 material = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.828842, -0.129659, 0.544251, 0, 0.972776, 0.231748, -0.559482, -0.192082, 0.806278, 0, 6.62131, 0 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( -0.784601, -0.123312, -0.0958924, 0, -0.491097, 0.631525, -0.156209, 0.619369, 0.481644, 0, 0, 0 )
+cast_shadow = 0
+use_in_baked_light = true
+mesh = SubResource( 3 )
+material/0 = null
