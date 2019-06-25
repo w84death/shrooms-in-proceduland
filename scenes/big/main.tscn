@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://code/main.gd" type="Script" id=1]
 [ext_resource path="res://desert_env.tres" type="Environment" id=2]
@@ -17,10 +17,11 @@
 [ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/small/pyramid.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/small/shroom_big.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
-length = 30.0
+length = 40.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("camera:translation")
 tracks/0/interp = 1
@@ -28,10 +29,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 21.5, 26.9, 30 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 21.5, 28.6, 35.7, 39.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.267, 3.86, 76.16 ), Vector3( 1.267, 3.86, 69.97 ), Vector3( -7.543, 3.86, 35.665 ), Vector3( -23.179, 3.86, 22.181 ), Vector3( -4.743, 0.991, 4.151 ), Vector3( -2.883, 0.421, -5.519 ), Vector3( -0.433, 1.561, -10.359 ), Vector3( 84.557, 7.481, -1.639 ), Vector3( 72.352, 2.636, 20.025 ), Vector3( 54.7491, 3.21987, 17.5176 ), Vector3( 37.519, 3.22, 17.518 ) ]
+"values": [ Vector3( 1.267, 3.86, 76.16 ), Vector3( 1.267, 3.86, 69.97 ), Vector3( -7.543, 3.86, 35.665 ), Vector3( -23.179, 3.86, 22.181 ), Vector3( -4.743, 0.991, 4.151 ), Vector3( -2.883, 0.421, -5.519 ), Vector3( -0.433, 1.561, -10.359 ), Vector3( 84.557, 7.481, -1.639 ), Vector3( 72.352, 2.636, 20.025 ), Vector3( 54.7491, 3.21987, 17.5176 ), Vector3( 37.519, 3.22, 17.518 ), Vector3( 24.469, 3.22, 20.438 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("camera:rotation_degrees")
@@ -40,10 +41,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 22.9, 26.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.3, 3.8, 7.5, 8, 15.3, 18, 19.3, 22.9, 28.6, 39.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 11.6177, 4.89023, 0 ), Vector3( 11.618, 4.89, -1.85 ), Vector3( 9.938, -10.91, -1.732 ), Vector3( 3.352, -36.37, -1.676 ), Vector3( 9.198, -42.65, 7.19 ), Vector3( 17.998, -141.68, 7.19 ), Vector3( 4.048, -167.68, -2.92 ), Vector3( 3.188, -214.17, 0 ), Vector3( 17.093, -221.329, 4.264 ), Vector3( 17.6836, -220.51, 3.40135 ) ]
+"values": [ Vector3( 11.6177, 4.89023, 0 ), Vector3( 11.618, 4.89, -1.85 ), Vector3( 9.938, -10.91, -1.732 ), Vector3( 3.352, -36.37, -1.676 ), Vector3( 9.198, -42.65, 7.19 ), Vector3( 17.998, -141.68, 7.19 ), Vector3( 4.048, -167.68, -2.92 ), Vector3( 3.188, -214.17, 0 ), Vector3( 17.093, -221.329, 4.264 ), Vector3( 17.6836, -220.51, 3.40135 ), Vector3( 37.574, -189.39, 3.401 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("camera:current")
@@ -64,7 +65,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 30 ),
+"times": PoolRealArray( 39.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -126,6 +127,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 length = 8.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("camera:translation")
 tracks/0/interp = 1
@@ -136,7 +138,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 93.917, 9.2, -64.68 ), Vector3( 93.917, 6.36, -3.3 ) ]
+"values": [ Vector3( 68.237, 3.33, 15.93 ), Vector3( 62.637, 3.33, 15.93 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("camera:rotation_degrees")
@@ -148,7 +150,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 12.618, -219.43, 0 ), Vector3( 13.268, -221.85, 0 ) ]
+"values": [ Vector3( 15.338, -213.89, 0 ), Vector3( 15.818, -212.69, 0 ) ]
 }
 
 [sub_resource type="BakedLightmapData" id=4]
@@ -187,6 +189,13 @@ rings = 2
 [sub_resource type="Curve" id=10]
 _data = [ Vector2( 0, 0.0159999 ), 0.0, 0.0, 0, 0, Vector2( 0.259717, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.831819, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
+[sub_resource type="CylinderMesh" id=11]
+material = ExtResource( 8 )
+top_radius = 12.0
+bottom_radius = 12.0
+height = 128.0
+radial_segments = 8
+
 [node name="main_scene" type="Spatial"]
 script = ExtResource( 1 )
 next_scene_bigfile = "end"
@@ -216,11 +225,11 @@ light_bake_mode = 2
 shadow_enabled = true
 shadow_color = Color( 0.623529, 0.556863, 0.556863, 1 )
 shadow_reverse_cull_face = true
-directional_shadow_mode = 0
+directional_shadow_mode = 1
 directional_shadow_max_distance = 128.0
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.741965, 0.245179, 0.623999, 0.0625318, 0.951981, -0.299696, -0.667517, -0.183344, -0.721668, 60.1418, 3.041, 18.2857 )
+transform = Transform( 0.455199, -0.224033, -0.861743, 0.122919, 0.974371, -0.188385, 0.881864, -0.0201722, 0.47107, -4.39202, 0.883442, 2.32628 )
 
 [node name="baloons" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -13.3462, -3.62 )
@@ -249,6 +258,10 @@ __meta__ = {
 }
 
 [node name="temple" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="OmniLight" parent="temple/base/main/front" index="1"]
+omni_shadow_mode = 0
 
 [node name="big_dust" type="MeshInstance" parent="."]
 transform = Transform( 0.998973, -0.0453117, 1.98064e-09, 0, -4.37114e-08, -1, 0.0453117, 0.998973, -4.36665e-08, 171.266, 7.07158, 305.792 )
@@ -355,8 +368,11 @@ transform = Transform( 0.619024, -0.0463205, 0.784004, -0.243425, 0.937782, 0.24
 [node name="stone3" parent="." instance=ExtResource( 13 )]
 transform = Transform( -0.776106, -0.656256, 0.861247, -0.486851, 1.87556, 0.247607, -1.77782, -0.22713, -0.443784, -28.671, -1.524, -1.056 )
 
+[node name="stone8" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.776106, -0.656256, 0.861247, -0.486851, 1.87556, 0.247607, -1.77782, -0.22713, -0.443784, 87.4108, 13.4411, -63.7871 )
+
 [node name="stone4" parent="." instance=ExtResource( 13 )]
-transform = Transform( -1.17031, -1.58838, -0.163877, 0.0205039, -0.418633, 0.977794, -1.62171, 1.14096, 0.130625, 19.764, -0.6, 44.239 )
+transform = Transform( -1.17031, -1.58838, -0.163877, 0.0205039, -0.418633, 0.977794, -1.62171, 1.14096, 0.130625, 19.764, 18.8546, 44.239 )
 
 [node name="stone_big" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1.41504, 4.07753, 2.52417, -3.057, 2.7947, -2.80079, -3.69492, -0.750633, 3.28391, -11.9266, 4.3062, -72.3008 )
@@ -380,6 +396,7 @@ transform = Transform( -4.07451, -7.95092, -8.01132, 2.29761, 7.75474, -8.86482,
 transform = Transform( 11.4984, 0.479303, 3.39948, 2.29761, 7.75474, -8.86482, -2.55092, 9.14517, 7.33884, 260.64, -1.3781, -248.514 )
 
 [node name="shrooms" type="Position3D" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0 )
 
 [node name="shroom" parent="shrooms" instance=ExtResource( 15 )]
@@ -404,16 +421,36 @@ transform = Transform( 0.573282, -0.11713, -0.0218796, 0.177016, 0.378191, 0.082
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -27.72, 0.61, 49.7 )
 
 [node name="pyramid" parent="." instance=ExtResource( 17 )]
+editor/display_folded = true
 transform = Transform( 24, 0, 0, 0, 24, 0, 0, 0, 24, -335.172, -20.9371, 229.327 )
 
-[node name="w" parent="pyramid/base" index="1"]
-editor/display_folded = true
+[node name="shroom_big" parent="." instance=ExtResource( 18 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 13.3766, -2.01845, 150.487 )
 
-[node name="s" parent="pyramid/base" index="2"]
-editor/display_folded = true
+[node name="shroom_big2" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -21.4026, -2.01845, 127.078 )
 
-[node name="e" parent="pyramid/base" index="3"]
-editor/display_folded = true
+[node name="shroom_big3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -57.5194, -2.01845, 156.506 )
+
+[node name="shroom_big4" parent="." instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 42.1364, -2.01845, 162.526 )
+
+[node name="shroom_big5" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1753, -10.5545, 58.1883 )
+
+[node name="shroom_big6" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01952, -3.72567, 22.7402 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 44, 43.5 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85.7857, 44, -65.1346 )
+mesh = SubResource( 11 )
+material/0 = null
 
 [editable path="temple"]
 
