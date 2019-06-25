@@ -98,16 +98,16 @@ tracks/6/keys = {
 } ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("camera:environment:tonemap_exposure")
+tracks/7/path = NodePath("camera:environment:background_color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5, 6.4, 7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 1.2, 1.7, 6.5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.5, 1.0, 1.0, 0.0 ]
+"values": [ Color( 0.0823529, 0.0823529, 0.0823529, 1 ), Color( 0.0823529, 0.0823529, 0.0823529, 1 ), Color( 0.545098, 0.545098, 0.545098, 1 ), Color( 0.192157, 0.192157, 0.192157, 1 ), Color( 0.0823529, 0.0823529, 0.0823529, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -142,7 +142,7 @@ autoplay = "intro"
 anims/intro = SubResource( 1 )
 
 [node name="sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.974883, 0.0428435, -0.218556, 0, 0.981323, 0.192369, 0.222715, -0.187537, 0.956675, 0, 7, 0 )
+transform = Transform( 0.983915, 0.00645698, 0.178519, 0, 0.999347, -0.0361461, -0.178635, 0.0355647, 0.983272, 0, 7, 0 )
 light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
 light_indirect_energy = 0.0
 light_bake_mode = 2
@@ -156,7 +156,7 @@ fov = 110.0
 transform = Transform( 1, 0, 0, 4.65661e-10, 1, 0, 0, 1.49012e-08, 1, 0, 0, -0.35 )
 
 [node name="P1X" parent="camera" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 
 [node name="P" parent="camera/P1X" index="0"]
 editor/display_folded = true

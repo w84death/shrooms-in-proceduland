@@ -8,6 +8,7 @@ persistence = 1.0
 lacunarity = 4.0
 
 [resource]
+flags = 3
 seamless = true
 as_normalmap = true
 noise = SubResource( 1 )
