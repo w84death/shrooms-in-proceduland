@@ -1,24 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://materials/sand_blocks.material" type="Material" id=1]
-[ext_resource path="res://textures/noise_big.tres" type="Texture" id=2]
-[ext_resource path="res://materials/energy.material" type="Material" id=3]
+[ext_resource path="res://materials/bricks.material" type="Material" id=2]
+[ext_resource path="res://textures/noise_big.tres" type="Texture" id=3]
+[ext_resource path="res://materials/energy.material" type="Material" id=4]
+[ext_resource path="res://scenes/small/microconmtroller.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 18, 2, 18 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.733333, 0.729412, 0.643137, 1 )
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 3 )
 metallic = 0.53
 metallic_specular = 0.0
-metallic_texture = ExtResource( 2 )
+metallic_texture = ExtResource( 3 )
 metallic_texture_channel = 4
 roughness_texture_channel = 4
 uv1_scale = Vector3( 12, 4, 4 )
 
 [sub_resource type="SphereMesh" id=3]
-material = ExtResource( 3 )
+material = ExtResource( 4 )
 radius = 5.0
 height = 10.0
 radial_segments = 12
@@ -37,7 +39,7 @@ height = 8.0
 sides = 4
 cone = true
 smooth_faces = false
-material = ExtResource( 1 )
+material = ExtResource( 2 )
 
 [node name="cut" type="CSGBox" parent="base"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
@@ -95,3 +97,6 @@ cast_shadow = 0
 use_in_baked_light = true
 mesh = SubResource( 3 )
 material/0 = null
+
+[node name="microconmtroller4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.366853, -0.127358, -0.92152, 0.151726, 0.985512, -0.0758003, 0.917823, -0.112011, 0.380862, 6.71279, 1.39212, 8.37 )
