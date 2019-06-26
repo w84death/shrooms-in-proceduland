@@ -25,8 +25,9 @@ soundtrack_player="*res://music/soundtrack_player.tscn"
 
 [display]
 
-window/size/width=800
-window/size/height=343
+window/size/width=1920
+window/size/height=822
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -59,11 +60,7 @@ move_right={
 
 [rendering]
 
-quality/driver/fallback_to_gles2=true
-quality/2d/gles2_use_nvidia_rect_flicker_workaround=true
 threads/thread_model=2
-quality/directional_shadow/size=2048
-quality/shadow_atlas/size=2048
-quality/reflections/atlas_size=1024
-quality/depth/hdr=false
+quality/shadows/filter_mode=2
+quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"

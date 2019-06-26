@@ -8,6 +8,6 @@ persistence = 1.0
 lacunarity = 4.0
 
 [resource]
-flags = 3
+flags = 15
 seamless = true
 noise = SubResource( 1 )

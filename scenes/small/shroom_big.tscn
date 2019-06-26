@@ -9,14 +9,12 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.18362, 0 )
 radius = 1.78
 height = 8.82
-sides = 3
 material = ExtResource( 1 )
 
 [node name="head" type="CSGSphere" parent="foot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.69292, 0 )
 radius = 7.0
-radial_segments = 5
-rings = 4
+rings = 8
 material = ExtResource( 2 )
 
 [node name="cut" type="CSGBox" parent="foot/head"]

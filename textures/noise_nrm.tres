@@ -7,7 +7,7 @@ persistence = 0.579
 lacunarity = 2.04
 
 [resource]
-flags = 3
+flags = 15
 width = 128
 height = 128
 seamless = true
