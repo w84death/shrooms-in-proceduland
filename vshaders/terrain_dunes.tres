@@ -79,8 +79,6 @@ input_name = "vertex"
 
 [resource]
 code = "shader_type spatial;
-render_mode vertex_lighting;
-
 uniform float height_scale;
 uniform sampler2D heightmap;
 uniform float uv_scale_color;
@@ -288,7 +286,6 @@ void light() {
 }
 "
 graph_offset = Vector2( 434.68, 111.146 )
-flags/vertex_lighting = true
 nodes/vertex/0/position = Vector2( 1800, 80 )
 nodes/vertex/2/node = SubResource( 24 )
 nodes/vertex/2/position = Vector2( 20, 80 )

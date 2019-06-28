@@ -8,9 +8,8 @@ ground_bottom_color = Color( 0.0745098, 0.239216, 0.309804, 1 )
 ground_horizon_color = Color( 0.247059, 0.54902, 0.666667, 1 )
 ground_curve = 0.0324901
 sun_color = Color( 0.219608, 0.290196, 0.419608, 1 )
-sun_latitude = 36.6
-sun_longitude = 42.3
-sun_angle_min = 13.1
+sun_latitude = 8.37
+sun_angle_min = 28.75
 sun_angle_max = 0.0
 
 [resource]
@@ -29,8 +28,12 @@ tonemap_mode = 3
 tonemap_exposure = 0.8
 tonemap_white = 1.8
 dof_blur_far_enabled = true
+dof_blur_far_distance = 3.0
+dof_blur_far_amount = 0.16
+dof_blur_far_quality = 2
 dof_blur_near_enabled = true
 dof_blur_near_amount = 0.14
+dof_blur_near_quality = 2
 glow_enabled = true
 glow_strength = 1.1
 glow_bloom = 0.13

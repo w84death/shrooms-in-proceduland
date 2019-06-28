@@ -14,7 +14,6 @@ sun_angle_max = 129.9
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
-fog_color = Color( 0.788235, 0.607843, 0.121569, 1 )
 fog_sun_amount = 0.54
 fog_depth_begin = 64.0
 fog_depth_end = 512.0
@@ -37,6 +36,7 @@ ssao_quality = 2
 ssao_edge_sharpness = 0.5
 dof_blur_far_enabled = true
 dof_blur_far_distance = 64.0
+dof_blur_far_transition = 8.0
 dof_blur_far_quality = 2
 dof_blur_near_enabled = true
 dof_blur_near_distance = 4.0

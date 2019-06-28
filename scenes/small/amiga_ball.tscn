@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://meshes/amiga.tres" type="SphereMesh" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[sub_resource type="SphereShape" id=2]
+radius = 0.5
+
+[node name="amiga_ball" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02554, 6.46764, 0 )
+mass = 5.04
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null

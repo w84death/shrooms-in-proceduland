@@ -239,7 +239,7 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 1024.0
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.226646, -0.232908, -0.945718, 0.12238, 0.9701, -0.209584, 0.966257, -0.0682358, 0.248373, -4.13005, 0.80316, 0.96431 )
+transform = Transform( 0.572356, -0.215164, -0.791271, 0.123196, 0.97657, -0.176438, 0.810696, 0.00350383, 0.585454, -4.53916, 0.928534, 3.09127 )
 
 [node name="baloons" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -13.3462, -3.62 )
