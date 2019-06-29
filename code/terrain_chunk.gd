@@ -17,13 +17,13 @@ func _init(noise, x, z, chunk_size):
 	
 func _ready():
 	generate_chunk()
+	generate_water_layer()
 	
 func generate_terrain_chunk():
 	var plane_mesh = PlaneMesh.new()
 	plane_mesh.size = Vector2(chunk_size, chunk_size)
 	plane_mesh.subdivide_depth = chunk_size
 	plane_mesh.subdivide_width = chunk_size
-	
 	
 	var mesh_instance = MeshInstance.new()
 	mesh_instance.mesh = plane_mesh
@@ -36,8 +36,6 @@ func generate_chunk():
 	plane_mesh.subdivide_depth = chunk_size * .5
 	plane_mesh.subdivide_width = chunk_size * .5
 	plane_mesh.material = preload("res://materials/terrain_grass.material")
-	
-	# ADD MATERIAL HERE
 	
 	var surface_tool = SurfaceTool.new()
 	var data_tool = MeshDataTool.new()
@@ -66,14 +64,17 @@ func generate_chunk():
 	
 	add_child(mesh_instance)
 	
-	#get_node("Particles").get_material().set_shader_param("HEIGHT_MAP", noise.get_noise_2d(x, z))
+func generate_water_layer():
+	var plane_mesh = PlaneMesh.new()
+	plane_mesh.size = Vector2(chunk_size, chunk_size)
+	plane_mesh.subdivide_depth = chunk_size * .5
+	plane_mesh.subdivide_width = chunk_size * .5
+	plane_mesh.material = preload("res://materials/water2.material")
+
+	var mesh_instance = MeshInstance.new()
+	mesh_instance.mesh = plane_mesh
 	
-	
-	
-	
-	
-	
-	
+	add_child(mesh_instance)
 	
 	
 	

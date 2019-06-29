@@ -22,6 +22,9 @@
 [ext_resource path="res://scenes/small/tornado.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/small/cristals.tscn" type="PackedScene" id=21]
 
+
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
 length = 60.0
