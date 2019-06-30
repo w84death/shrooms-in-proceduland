@@ -8,20 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Spatial",
-"class": "Chunk",
-"language": "GDScript",
-"path": "res://code/terrain_chunk.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Chunk": ""
+
 }
 
 [application]
 
 config/name="Shrooms in Proceduland / PC / GLES3 / 1.44MB"
-run/main_scene="res://scenes/big/infinite_terrain.tscn"
+run/main_scene="res://scenes/big/intro.tscn"
 boot_splash/bg_color=Color( 0.188235, 0.0784314, 0.290196, 1 )
 
 [autoload]

@@ -22,9 +22,6 @@
 [ext_resource path="res://scenes/small/tornado.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/small/cristals.tscn" type="PackedScene" id=21]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
 length = 60.0
@@ -242,7 +239,7 @@ directional_shadow_blend_splits = true
 directional_shadow_max_distance = 1024.0
 
 [node name="camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.572356, -0.215164, -0.791271, 0.123196, 0.97657, -0.176438, 0.810696, 0.00350383, 0.585454, -4.53916, 0.928534, 3.09127 )
+transform = Transform( 0.996059, 0.0298386, 0.0834989, -0.0124588, 0.979432, -0.201382, -0.0877906, 0.199549, 0.975946, 1.267, 3.86, 73.7215 )
 
 [node name="baloons" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -13.3462, -3.62 )
