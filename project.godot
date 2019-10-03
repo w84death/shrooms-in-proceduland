@@ -25,8 +25,8 @@ soundtrack_player="*res://music/soundtrack_player.tscn"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=640
+window/size/height=400
 window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
@@ -65,7 +65,7 @@ move_jump={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 threads/thread_model=2
 quality/shadows/filter_mode=2
-quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"

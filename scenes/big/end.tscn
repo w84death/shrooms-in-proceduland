@@ -70,6 +70,7 @@ anims/end = SubResource( 1 )
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.98158, 0.00827614, 0.19087, 0, 0.999062, -0.0433195, -0.191049, 0.0425216, 0.980659, 0, 7, 0 )
 light_color = Color( 0.972549, 0.980392, 0.901961, 1 )
+light_energy = 2.0
 light_indirect_energy = 0.0
 light_bake_mode = 2
 
@@ -82,6 +83,9 @@ transform = Transform( 0.150226, 0.988652, 4.37114e-08, 6.56657e-09, 4.32153e-08
 [node name="GUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="center" type="Control" parent="GUI"]
 anchor_left = 0.5
@@ -93,6 +97,8 @@ margin_bottom = 90.0
 
 [node name="credits" type="Control" parent="GUI/center"]
 modulate = Color( 0.861961, 0.748235, 0.455686, 1 )
+margin_top = 60.0
+margin_bottom = 60.0
 
 [node name="by" type="Label" parent="GUI/center/credits"]
 anchor_left = 1.0

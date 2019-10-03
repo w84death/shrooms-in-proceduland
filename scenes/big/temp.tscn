@@ -2,11 +2,11 @@
 
 [ext_resource path="res://code/main.gd" type="Script" id=1]
 [ext_resource path="res://desert_env.tres" type="Environment" id=2]
-[ext_resource path="res://scenes/small/pyramid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/small/baloon.tres" type="SphereMesh" id=4]
 [ext_resource path="res://scenes/small/clouds.tscn" type="PackedScene" id=5]
 [ext_resource path="res://materials/terrain_dunes.material" type="Material" id=6]
-[ext_resource path="res://scenes/small/camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/small/temple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://materials/big_dust.material" type="Material" id=8]
 [ext_resource path="res://materials/glista_skin.material" type="Material" id=9]
 [ext_resource path="res://scenes/small/glista_head.tres" type="SphereMesh" id=10]
@@ -14,13 +14,13 @@
 [ext_resource path="res://materials/dust.material" type="Material" id=12]
 [ext_resource path="res://scenes/small/stone.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/small/stone_big.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/small/microconmtroller.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/small/temple.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/small/cristals.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/small/tornado.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/small/shroom.tscn" type="PackedScene" id=20]
-[ext_resource path="res://scenes/small/shroom_big.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scenes/small/P1X.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/small/pyramid.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/small/shroom_big.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/small/tornado.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/small/cristals.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -156,7 +156,7 @@ tracks/1/keys = {
 "values": [ Vector3( 15.338, -213.89, 0 ), Vector3( 15.818, -212.69, 0 ) ]
 }
 
-[sub_resource type="BakedLightmapData" id=12]
+[sub_resource type="BakedLightmapData" id=4]
 bounds = AABB( -512, -256, -512, 1024, 512, 1024 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 2048, 1024, 2048 )
 cell_subdiv = 13
@@ -209,10 +209,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.4667, 0 )
 bake_quality = 2
 bake_mode = 1
 bake_extents = Vector3( 512, 256, 512 )
-light_data = SubResource( 12 )
+light_data = SubResource( 4 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
-visible = false
 subdiv = 2
 extents = Vector3( 2048, 512, 2048 )
 data = SubResource( 5 )
@@ -231,11 +230,12 @@ shadow_reverse_cull_face = true
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 1024.0
 
-[node name="camera" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.996059, 0.0298386, 0.0834989, -0.0124588, 0.979432, -0.201382, -0.0877906, 0.199549, 0.975946, 1.267, 3.86, 73.7215 )
+[node name="camera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.99915, -0.0123647, -0.0392778, 0, 0.953852, -0.300272, 0.0411781, 0.300018, 0.953043, -103.04, 14.89, 396.505 )
 
 [node name="baloons" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45, -13.3462, -3.62 )
+visible = false
 use_in_baked_light = true
 amount = 32
 lifetime = 24.0
@@ -259,7 +259,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="temple" parent="." instance=ExtResource( 17 )]
+[node name="temple" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+visible = false
 
 [node name="OmniLight" parent="temple/base/main/front" index="1"]
 light_energy = 4.0
@@ -269,42 +271,50 @@ omni_shadow_mode = 0
 
 [node name="big_dust" type="MeshInstance" parent="."]
 transform = Transform( 0.998973, -0.0453117, 1.98064e-09, 0, -4.37114e-08, -1, 0.0453117, 0.998973, -4.36665e-08, 171.266, 7.07158, 305.792 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="big_dust2" type="MeshInstance" parent="."]
 transform = Transform( -0.805024, -0.593243, 2.59315e-08, 0, -4.37114e-08, -1, 0.593243, -0.805024, 3.51887e-08, -113.726, 2.5579, -158.618 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="big_dust5" type="MeshInstance" parent="."]
 transform = Transform( -0.882772, -0.469801, 2.05357e-08, 0, -4.37114e-08, -1, 0.469801, -0.882772, 3.85872e-08, -158.202, 2.5579, -298.08 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="big_dust3" type="MeshInstance" parent="."]
 transform = Transform( -0.915855, 0.401509, -1.75505e-08, 0, -4.37114e-08, -1, -0.401509, -0.915855, 4.00333e-08, 231.077, 11.18, -172.723 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="big_dust4" type="MeshInstance" parent="."]
 transform = Transform( 0.142918, 0.989734, -4.32627e-08, 0, -4.37114e-08, -1, -0.989734, 0.142918, -6.24716e-09, 347.517, -2.74992, 210.717 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="big_dust6" type="MeshInstance" parent="."]
 transform = Transform( 0.711221, 0.702969, -3.07277e-08, 0, -4.37114e-08, -1, -0.702969, 0.711221, -3.10885e-08, 215.794, 5.85513, 82.7957 )
+visible = false
 cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="glista" type="Path" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.553, -25.82, -16.6232 )
+visible = false
 curve = SubResource( 9 )
 
 [node name="body" type="CSGPolygon" parent="glista"]
@@ -400,24 +410,26 @@ transform = Transform( -4.07451, -7.95092, -8.01132, 2.29761, 7.75474, -8.86482,
 transform = Transform( 11.4984, 0.479303, 3.39948, 2.29761, 7.75474, -8.86482, -2.55092, 9.14517, 7.33884, 260.64, -1.3781, -248.514 )
 
 [node name="shrooms" type="Position3D" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54, 0 )
+visible = false
 
-[node name="shroom" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.405, -0.311, -4.09 )
 
-[node name="shroom2" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom2" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 0.186949, 0.199179, 0, -0.165982, 0.224339, 0, 0, 0, 0.25, 0.795, 0.198, -3.965 )
 
-[node name="shroom3" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom3" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.5, 0.931327, -0.301565, -3.0089 )
 
-[node name="shroom4" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom4" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 0.0583069, -0.0586865, -0.188513, 0.0976107, 0.314213, 3.28905e-09, 0.164537, -0.165608, 0.0668034, 0.283, 0.009, -4.513 )
 
-[node name="shroom6" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom6" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 0.191724, -0.10818, 0, 0.0527984, 0.337799, -0.0748566, 0.0213105, 0.136342, 0.185463, -0.425, -0.368, -3.097 )
 
-[node name="shroom5" parent="shrooms" instance=ExtResource( 20 )]
+[node name="shroom5" parent="shrooms" instance=ExtResource( 15 )]
 transform = Transform( 0.573282, -0.11713, -0.0218796, 0.177016, 0.378191, 0.0827779, -0.00355267, -0.0570313, 0.59386, -0.829, -0.81, -5.215 )
 
 [node name="microconmtroller" parent="shrooms" instance=ExtResource( 16 )]
@@ -426,94 +438,116 @@ transform = Transform( -0.315018, -0.149236, -0.937279, -0.287416, 0.956188, -0.
 [node name="microconmtroller2" parent="shrooms" instance=ExtResource( 16 )]
 transform = Transform( 0.738805, -0.254899, -0.623854, 0.27469, 0.959222, -0.0666222, 0.615396, -0.122146, 0.778696, -3.05, -0.48, -2.41 )
 
-[node name="P1X" parent="." instance=ExtResource( 15 )]
+[node name="P1X" parent="." instance=ExtResource( 17 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -27.72, 0.61, 49.7 )
+visible = false
 
-[node name="pyramid" parent="." instance=ExtResource( 3 )]
+[node name="pyramid" parent="." instance=ExtResource( 18 )]
+editor/display_folded = true
 transform = Transform( 24, 0, 0, 0, 24, 0, 0, 0, 24, -335.172, -20.9371, 229.327 )
+visible = false
 
-[node name="shroom_big" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big" parent="." instance=ExtResource( 19 )]
 transform = Transform( 3.9774, 0.421946, -0.0477317, -0.423218, 3.97571, -0.12089, 0.0346895, 0.125257, 3.99789, 13.3766, -2.01845, 150.487 )
 
-[node name="shroom_big2" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big2" parent="." instance=ExtResource( 19 )]
 transform = Transform( 2, 0, 0, 0, 1.95766, 0.40934, 0, -0.40934, 1.95766, -21.4026, -2.01845, 127.078 )
 
-[node name="shroom_big3" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big3" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1.93296, -0.513471, 0, 0.513471, 1.93296, 0, 0, 0, 2, -57.5194, -2.01845, 156.506 )
 
-[node name="shroom_big7" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big7" parent="." instance=ExtResource( 19 )]
 transform = Transform( 2, 0, 0, 0, 1.99542, 0.135319, 0, -0.135319, 1.99542, 47.5257, 4.10557, -127.846 )
 
-[node name="shroom_big8" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big8" parent="." instance=ExtResource( 19 )]
 transform = Transform( 2, 0, 0, 0, 1.95333, 0.429554, 0, -0.429554, 1.95333, 142.343, -0.98749, -49.1026 )
 
-[node name="shroom_big9" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big9" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1.94075, 0.483219, 0, -0.483219, 1.94075, 0, 0, 0, 2, 167.949, -5.87423, -33.3599 )
 
-[node name="shroom_big10" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big10" parent="." instance=ExtResource( 19 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 133.314, -5.87423, 62.4079 )
 
-[node name="shroom_big11" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big11" parent="." instance=ExtResource( 19 )]
 transform = Transform( 0.999902, -0.0138849, -0.0015321, 0.0139692, 0.99387, 0.109667, 0, -0.109678, 0.993967, 129.851, -4.40098, 46.9618 )
 
-[node name="shroom_big4" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big4" parent="." instance=ExtResource( 19 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 42.1364, -2.01845, 162.526 )
 
-[node name="shroom_big5" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big5" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54.1753, -10.5545, 58.1883 )
 
-[node name="shroom_big6" parent="." instance=ExtResource( 21 )]
+[node name="shroom_big6" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.01952, -3.72567, 22.7402 )
 
-[node name="tornado" parent="." instance=ExtResource( 19 )]
+[node name="tornado" parent="." instance=ExtResource( 20 )]
+visible = false
 
-[node name="tornado2" parent="." instance=ExtResource( 19 )]
+[node name="tornado2" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 2.23517e-08, -2.98023e-08, 1, 0, -1.49012e-08, -1.49012e-08, 1, 23.6472, 48.2485, -15.7099 )
+visible = false
 
-[node name="tornado3" parent="." instance=ExtResource( 19 )]
+[node name="tornado3" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 2.23517e-08, -2.98023e-08, 1, 0, -1.49012e-08, -1.49012e-08, 1, -83.8204, 44, -63.7965 )
+visible = false
 
-[node name="temple2" parent="." instance=ExtResource( 17 )]
+[node name="temple2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 108.354, -0.66961, 59.7437 )
+visible = false
 
-[node name="cristals" parent="." instance=ExtResource( 18 )]
+[node name="cristals" parent="." instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.42, -1.36, 26.07 )
+visible = false
 
-[node name="cristals2" parent="." instance=ExtResource( 18 )]
+[node name="cristals2" parent="." instance=ExtResource( 21 )]
 transform = Transform( -0.951164, 0, 0.308685, 0, 1, 0, -0.308685, 0, -0.951164, 74.35, 3.36, 29.2 )
+visible = false
 
-[node name="cristals3" parent="." instance=ExtResource( 18 )]
+[node name="cristals3" parent="." instance=ExtResource( 21 )]
 transform = Transform( -0.229379, 0, 1.7545, 0, 1.68, 0, -1.34052, 0, -0.300217, 71.1, 3.13, 49.91 )
+visible = false
 
 [node name="microconmtroller" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.33173, -0.025319, -0.943035, 0.0236836, 0.999101, -0.0351554, 0.943077, -0.0339966, -0.330832, 59.277, 0.661, 27.214 )
+visible = false
 
 [node name="microconmtroller2" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.00335025, -0.431728, -0.901998, -0.00160354, 0.902004, -0.431725, 0.999993, 0, -0.00371423, 56.2822, 0.128805, 27.2138 )
+visible = false
 
 [node name="microconmtroller3" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.357755, 0, -0.933815, 0, 1, 0, 0.933815, 0, -0.357755, 63.108, 0.509, 30.893 )
+visible = false
 
 [node name="microconmtroller9" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.869172, 0, -0.49451, 0, 1, 0, 0.49451, 0, -0.869172, 66.833, 0.191498, 32.2812 )
+visible = false
 
 [node name="microconmtroller10" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.867006, -0.0171224, -0.498004, 0.0177635, 0.997712, -0.065229, 0.497982, -0.0654002, -0.864718, 68.244, 0.934, 28.117 )
+visible = false
 
 [node name="microconmtroller4" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.0626444, 0, -0.998036, 0, 1, 0, 0.998036, 0, 0.0626444, 58.1336, 0.319, 31.8185 )
+visible = false
 
 [node name="microconmtroller6" parent="." instance=ExtResource( 16 )]
 transform = Transform( -0.058616, 0, -0.998281, 0, 1, 0, 0.998281, 0, -0.058616, 56.0745, 0.127746, 30.4534 )
+visible = false
 
 [node name="microconmtroller7" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.265388, 0, -0.964142, 0, 1, 0, 0.964142, 0, 0.265388, 55.4498, 0.127746, 33.7851 )
+visible = false
 
 [node name="microconmtroller8" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.57342, 0.206192, -0.79289, -0.0273314, 0.972086, 0.233025, 0.818806, -0.11195, 0.563049, 51.771, -0.701018, 25.5716 )
+visible = false
 
 [node name="microconmtroller5" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.769601, 0.0675185, -0.634945, 0.0181992, 0.99167, 0.127511, 0.638266, -0.109688, 0.761961, 53.3906, -0.318511, 32.4663 )
+visible = false
+
+[editable path="clouds"]
 
 [editable path="temple"]
 

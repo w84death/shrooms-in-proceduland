@@ -14,6 +14,7 @@ sun_angle_max = 129.9
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_enabled = true
 fog_sun_amount = 0.54
 fog_depth_begin = 64.0
 fog_depth_end = 512.0
